@@ -1,0 +1,72 @@
+/* Y2K */
+/* Y2K 全局样式 */
+
+:root {
+  --y2k-silver: #c0c0c0;
+  --y2k-pink: #ff69b4;
+  --y2k-cyan: #00ffff;
+  --y2k-purple: #ff00ff;
+}
+
+/* 金属光泽效果 */
+.y2k-metallic {
+  background: linear-gradient(
+    135deg,
+    #e8e8e8 0%,
+    #ffffff 25%,
+    #e8e8e8 50%,
+    #ffffff 75%,
+    #e8e8e8 100%
+  );
+}
+
+/* 彩虹渐变文字 */
+.y2k-rainbow-text {
+  background: linear-gradient(90deg, #ff69b4, #00ffff, #ff00ff, #ff69b4);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+  to { background-position: 200% center; }
+}
+
+/* 气泡效果 */
+.y2k-bubble {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent);
+  border-radius: 50%;
+}
+.y2k-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.y2k-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.05), transparent);
+  pointer-events: none;
+}
+
+.y2k-card:hover::before {
+  opacity: 1;
+}
+
+.y2k-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(192, 192, 192, 0.08);
+}
+
+.y2k-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.y2k-animate-in {
+  animation: y2k-fade-in 0.5s ease-out both;
+}

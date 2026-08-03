@@ -1,0 +1,81 @@
+/* Surrealism */
+/* Surrealism 全局样式 */
+
+:root {
+  --sr-midnight: #1a1a3e;
+  --sr-gold: #d4a574;
+  --sr-rose: #c38d94;
+  --sr-cream: #f0ece4;
+}
+
+/* 梦境模糊光晕 */
+.sr-dream-glow {
+  box-shadow:
+    0 0 40px rgba(212, 165, 116, 0.2),
+    0 0 80px rgba(195, 141, 148, 0.1);
+}
+
+/* 超现实渐变 */
+.sr-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--sr-midnight) 0%,
+    #2a2a5e 40%,
+    var(--sr-rose) 70%,
+    var(--sr-gold) 100%
+  );
+}
+
+/* 融化效果 */
+.sr-melt {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* 飘浮阴影 */
+.sr-float-shadow {
+  box-shadow:
+    0 20px 60px rgba(26, 26, 62, 0.3),
+    0 0 40px rgba(195, 141, 148, 0.15);
+}
+@keyframes surrealism-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes surrealism-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.surrealism-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.surrealism-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(26, 26, 62, 0.05), transparent);
+  pointer-events: none;
+}
+
+.surrealism-card:hover::before {
+  opacity: 1;
+}
+
+.surrealism-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(26, 26, 62, 0.08);
+}
+
+.surrealism-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.surrealism-animate-in {
+  animation: surrealism-fade-in 0.5s ease-out both;
+}

@@ -1,0 +1,92 @@
+/* Swiss International */
+/* Swiss International Style 全局样式 */
+
+:root {
+  --swiss-black: #000000;
+  --swiss-white: #ffffff;
+  --swiss-red: #ff0000;
+  --swiss-blue: #0057b8;
+}
+
+/* 网格系统 */
+.swiss-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+/* 标题样式 */
+.swiss-heading {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+/* 标签样式 */
+.swiss-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #6b7280;
+}
+
+/* 左边框强调 */
+.swiss-accent {
+  border-left: 4px solid var(--swiss-black);
+  padding-left: 1.5rem;
+}
+@keyframes swiss-style-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes swiss-style-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.swiss-style-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiss-style-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.swiss-style-card:hover::before {
+  opacity: 1;
+}
+
+.swiss-style-gradient {
+  background: linear-gradient(135deg, #000000, #ff0000);
+}
+
+.swiss-style-gradient-text {
+  background: linear-gradient(135deg, #000000, #ff0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.swiss-style-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.swiss-style-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.swiss-style-animate-in {
+  animation: swiss-style-fade-in 0.5s ease-out both;
+}

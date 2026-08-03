@@ -1,0 +1,89 @@
+/* Wabi-Sabi */
+/* Wabi-Sabi */
+:root {
+  --wabi-bg: #f7f3ec;
+  --wabi-surface: #f2ede4;
+  --wabi-text: #3a3a3a;
+  --wabi-muted: #8a8278;
+  --wabi-moss: #8a9a7b;
+  --wabi-tea: #b5a78c;
+  --wabi-clay: #8b6f4e;
+  --wabi-border: #d4cdc5;
+}
+@keyframes wabi-sabi-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wabi-sabi-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.wabi-sabi-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.wabi-sabi-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(58, 58, 58, 0.05), transparent);
+  pointer-events: none;
+}
+
+.wabi-sabi-card:hover::before {
+  opacity: 1;
+}
+
+.wabi-sabi-gradient {
+  background: linear-gradient(135deg, #3a3a3a, #8a9a7b);
+}
+
+.wabi-sabi-gradient-text {
+  background: linear-gradient(135deg, #3a3a3a, #8a9a7b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.wabi-sabi-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(58, 58, 58, 0.08);
+}
+
+.wabi-sabi-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.wabi-sabi-animate-in {
+  animation: wabi-sabi-fade-in 0.5s ease-out both;
+}
+
+.wabi-sabi-focus { outline: 2px solid var(--wabi-sabi-primary, currentColor); outline-offset: 2px; }
+
+/* Responsive utilities */
+@media (prefers-reduced-motion: reduce) {
+  .wabi-sabi-animate-in {
+    animation: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .wabi-sabi-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+}
+
+/* Print styles */
+@media print {
+  .wabi-sabi-gradient,
+  .wabi-sabi-frosted {
+    background: none;
+    backdrop-filter: none;
+  }
+}

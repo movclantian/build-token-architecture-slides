@@ -1,0 +1,100 @@
+/* Watercolor Style */
+/* Watercolor Style 全局样式 */
+
+:root {
+  --wc-blue: #4a6fa5;
+  --wc-paper: #faf8f5;
+  --wc-peach: #e8a87c;
+  --wc-teal: #85cdca;
+  --wc-rose: #c38d94;
+  --wc-sand: #d4a373;
+}
+
+/* 水彩纸张背景 */
+.wc-paper {
+  background-color: var(--wc-paper);
+}
+
+/* 水彩晕染效果 */
+.wc-wash {
+  background: radial-gradient(ellipse at 30% 50%, rgba(232, 168, 124, 0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(133, 205, 202, 0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 50% 80%, rgba(195, 141, 148, 0.1) 0%, transparent 60%);
+}
+
+/* 水彩边缘模糊 */
+.wc-soft-edge {
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(74, 111, 165, 0.1);
+}
+
+/* 水彩文字 */
+.wc-text {
+  font-family: 'Georgia', 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--wc-blue);
+}
+
+/* 水彩色块 */
+.wc-swatch {
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.7;
+}
+
+/* 水彩卡片 */
+.wc-card {
+  background: linear-gradient(135deg, rgba(232, 168, 124, 0.15), white, rgba(133, 205, 202, 0.15));
+  border-radius: 24px;
+  border: 1px solid rgba(74, 111, 165, 0.1);
+  box-shadow: 0 8px 30px rgba(74, 111, 165, 0.1);
+}
+
+/* 水彩分割线 */
+.wc-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--wc-blue), transparent);
+  opacity: 0.2;
+}
+@keyframes watercolor-style-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes watercolor-style-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.watercolor-style-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.watercolor-style-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(74, 111, 165, 0.05), transparent);
+  pointer-events: none;
+}
+
+.watercolor-style-card:hover::before {
+  opacity: 1;
+}
+
+.watercolor-style-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(74, 111, 165, 0.08);
+}
+
+.watercolor-style-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.watercolor-style-animate-in {
+  animation: watercolor-style-fade-in 0.5s ease-out both;
+}

@@ -1,0 +1,52 @@
+/* Kinetic Typography */
+/* Kinetic Typography Global Styles */
+
+:root {
+  --kt-ink: #0B0B0C;
+  --kt-ink-raised: #141416;
+  --kt-bone: #F4F1EB;
+  --kt-signal: #FF4D00;
+  --kt-muted: rgba(244, 241, 235, 0.55);
+  --kt-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --kt-duration: 0.9s;
+  --kt-stagger: 40ms;
+}
+
+/* Mask-rise entrance: wrap each line in .kt-line, put text in a child span */
+.kt-line {
+  overflow: hidden;
+  display: block;
+}
+.kt-line > span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: kt-rise var(--kt-duration) var(--kt-ease) both;
+}
+
+@keyframes kt-rise {
+  to { transform: translateY(0); }
+}
+
+/* Variable-font weight breathing */
+@keyframes kt-breathe {
+  from { font-variation-settings: "wght" 300; }
+  to { font-variation-settings: "wght" 800; }
+}
+.kt-breathe { animation: kt-breathe 2.4s ease-in-out infinite alternate; }
+
+/* Seamless marquee: duplicate the strip content twice inside .kt-marquee-track */
+.kt-marquee { overflow: hidden; white-space: nowrap; }
+.kt-marquee-track {
+  display: inline-flex;
+  animation: kt-marquee 24s linear infinite;
+}
+.kt-marquee:hover .kt-marquee-track { animation-play-state: paused; }
+@keyframes kt-marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kt-line > span { animation: none; transform: none; }
+  .kt-breathe { animation: none; font-variation-settings: "wght" 700; }
+  .kt-marquee-track { animation: none; }
+}

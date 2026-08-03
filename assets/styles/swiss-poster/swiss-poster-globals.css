@@ -1,0 +1,97 @@
+/* Swiss Poster */
+/* Swiss Poster Global Styles */
+
+:root {
+  --sp-black: #000000;
+  --sp-white: #ffffff;
+  --sp-red: #ff0000;
+  --sp-blue: #0057b8;
+  --sp-yellow: #ffcc00;
+}
+
+/* Structural grid overlay for development */
+.sp-grid-overlay {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: calc(100% / 12) 100px;
+}
+
+/* Color block accents */
+.sp-block-red { background-color: var(--sp-red); }
+.sp-block-blue { background-color: var(--sp-blue); }
+.sp-block-yellow { background-color: var(--sp-yellow); }
+
+/* Tight tracking for poster headings */
+.sp-tight { letter-spacing: -0.05em; }
+
+/* Structural divider line */
+.sp-divider {
+  border-top: 2px solid var(--sp-black);
+}
+
+/* Vertical text for sidebar labels */
+.sp-vertical-text {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  letter-spacing: 0.5em;
+}
+
+/* Asymmetric grid helper - 3/9 split */
+.sp-grid-3-9 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.sp-grid-3-9 > :first-child { grid-column: span 3; }
+.sp-grid-3-9 > :last-child { grid-column: span 9; }
+
+/* Edge-to-edge buttons */
+.sp-button-group {
+  display: flex;
+  gap: 0;
+}
+.sp-button-group > * + * {
+  border-left: 0;
+}
+@keyframes swiss-poster-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes swiss-poster-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.swiss-poster-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiss-poster-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.swiss-poster-card:hover::before {
+  opacity: 1;
+}
+
+.swiss-poster-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.swiss-poster-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.swiss-poster-animate-in {
+  animation: swiss-poster-fade-in 0.5s ease-out both;
+}

@@ -1,0 +1,75 @@
+/* Impressionist Oil */
+/* Impressionist Oil Global Styles */
+
+:root {
+  --imp-orange: #e8a87c;
+  --imp-canvas: #f5f0e1;
+  --imp-vermillion: #c0392b;
+  --imp-blue: #2c3e50;
+  --imp-turquoise: #1abc9c;
+  --imp-gold: #f5d88a;
+}
+
+/* Canvas weave texture overlay */
+.imp-canvas::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(44,62,80,0.03) 3px, transparent 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(44,62,80,0.02) 3px, transparent 4px);
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* Dappled light overlay - scattered radial gradient spots */
+.imp-dapple::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle 80px at 20% 15%, rgba(245,216,138,0.08) 0%, transparent 100%),
+    radial-gradient(circle 100px at 45% 10%, rgba(232,168,124,0.06) 0%, transparent 100%),
+    radial-gradient(circle 70px at 75% 20%, rgba(245,216,138,0.07) 0%, transparent 100%),
+    radial-gradient(circle 90px at 90% 60%, rgba(232,168,124,0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Brushstroke texture as repeating-linear-gradient */
+.imp-brushstroke {
+  background-image: repeating-linear-gradient(
+    25deg,
+    transparent,
+    transparent 15px,
+    rgba(232,168,124,0.02) 15px,
+    transparent 16px
+  );
+}
+
+/* Brushstroke underline decoration */
+.imp-stroke {
+  position: relative;
+  display: inline-block;
+}
+.imp-stroke::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: -5%;
+  width: 110%;
+  height: 6px;
+  background: var(--imp-orange);
+  opacity: 0.5;
+  border-radius: 50%;
+  transform: rotate(-1deg);
+}
+
+/* Pointillism dot background */
+.imp-dots {
+  background-image:
+    radial-gradient(circle, var(--imp-orange) 0.8px, transparent 0.8px),
+    radial-gradient(circle, var(--imp-vermillion) 0.6px, transparent 0.6px);
+  background-size: 12px 12px, 8px 8px;
+  background-position: 0 0, 4px 4px;
+  opacity: 0.06;
+}

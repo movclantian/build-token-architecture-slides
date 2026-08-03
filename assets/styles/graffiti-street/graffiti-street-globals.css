@@ -1,0 +1,68 @@
+/* Graffiti Street */
+/* Graffiti Street Global Styles */
+
+:root {
+  --graf-red: #ff2d55;
+  --graf-dark: #1c1c1e;
+  --graf-cyan: #00e5ff;
+  --graf-yellow: #ffea00;
+  --graf-purple: #b620e0;
+  --graf-orange: #ff6d00;
+}
+
+/* Spray paint text glow */
+.graf-spray {
+  text-shadow:
+    0 0 4px currentColor,
+    0 0 8px currentColor;
+}
+
+/* Drip effect */
+.graf-drip::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 20%;
+  width: 3px;
+  height: 12px;
+  background: currentColor;
+  border-radius: 0 0 50% 50%;
+  opacity: 0.5;
+}
+
+/* Brick wall background pattern */
+.graf-brick-wall {
+  background-color: var(--graf-dark);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 30px,
+      rgba(255, 255, 255, 0.03) 30px,
+      rgba(255, 255, 255, 0.03) 31px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 60px,
+      rgba(255, 255, 255, 0.03) 60px,
+      rgba(255, 255, 255, 0.03) 61px
+    );
+}
+
+/* Tag underline - spray paint style */
+.graf-tag-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--graf-red);
+  text-decoration-thickness: 4px;
+  text-underline-offset: 4px;
+}
+
+/* Stencil text effect */
+.graf-stencil {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  -webkit-text-stroke: 2px currentColor;
+  color: transparent;
+}

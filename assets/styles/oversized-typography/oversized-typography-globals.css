@@ -1,0 +1,53 @@
+/* Oversized Typography */
+.oversized-typography-display {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+}
+.oversized-typography-hero {
+  font-size: clamp(3rem, 12vw, 10rem);
+}
+.oversized-typography-outline {
+  -webkit-text-stroke: 2px #0A0A0A;
+  color: transparent;
+}
+.oversized-typography-outline--inverse {
+  -webkit-text-stroke: 2px #FAFAF8;
+  color: transparent;
+}
+.oversized-typography-outline-hover {
+  -webkit-text-stroke: 2px #0A0A0A;
+  color: transparent;
+  transition: color 0.2s ease;
+}
+.oversized-typography-outline-hover:hover {
+  color: #FF4D00;
+  -webkit-text-stroke: 2px #FF4D00;
+}
+.oversized-typography-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+.oversized-typography-hairline {
+  border-top: 1px solid rgba(10, 10, 10, 0.15);
+}
+@keyframes oversized-typography-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.oversized-typography-marquee {
+  display: flex;
+  width: max-content;
+  animation: oversized-typography-marquee 24s linear infinite;
+}
+.oversized-typography-marquee:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .oversized-typography-marquee {
+    animation: none;
+  }
+}

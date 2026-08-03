@@ -1,0 +1,79 @@
+/* Dopamine Design */
+/* Dopamine Design Global Styles */
+@layer base {
+  body {
+    @apply bg-white text-zinc-900 antialiased;
+    font-family: 'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .dopamine-gradient-text {
+    background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .dopamine-glow-pink {
+    box-shadow: 0 8px 30px rgba(255, 0, 110, 0.4);
+  }
+
+  .dopamine-glow-purple {
+    box-shadow: 0 8px 30px rgba(131, 56, 236, 0.4);
+  }
+
+  .dopamine-glow-blue {
+    box-shadow: 0 8px 30px rgba(58, 134, 255, 0.4);
+  }
+}
+/* Dopamine Design Design Tokens */
+:root {
+  --dopamine-design-primary: #ff006e;
+  --dopamine-design-secondary: #8338ec;
+  --dopamine-design-accent: #ffbe0b;
+  --dopamine-design-glow: rgba(255, 0, 110, 0.3);
+}
+
+@keyframes dopamine-design-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dopamine-design-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.dopamine-design-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.dopamine-design-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(255, 0, 110, 0.05), transparent);
+  pointer-events: none;
+}
+
+.dopamine-design-card:hover::before {
+  opacity: 1;
+}
+
+.dopamine-design-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(255, 0, 110, 0.08);
+}
+
+.dopamine-design-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.dopamine-design-animate-in {
+  animation: dopamine-design-fade-in 0.5s ease-out both;
+}

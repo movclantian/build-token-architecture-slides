@@ -1,0 +1,98 @@
+/* Stripe Style */
+/* Stripe Style 全局样式 */
+
+:root {
+  --stripe-purple: #635bff;
+  --stripe-purple-light: #7a73ff;
+  --stripe-dark: #0a2540;
+  --stripe-cyan: #00d4ff;
+  --stripe-bg: #f6f9fc;
+  --stripe-grid: rgba(99, 91, 255, 0.1);
+}
+
+/* 网格背景 */
+.stripe-grid-bg {
+  background-image:
+    linear-gradient(to right, var(--stripe-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--stripe-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Stripe 风格卡片阴影 */
+.stripe-card {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 16px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.stripe-card:hover {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.06),
+    0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Stripe 风格按钮 */
+.stripe-button {
+  background: var(--stripe-purple);
+  box-shadow:
+    0 2px 4px rgba(99, 91, 255, 0.2),
+    0 4px 8px rgba(99, 91, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.stripe-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 8px rgba(99, 91, 255, 0.3),
+    0 8px 16px rgba(99, 91, 255, 0.2);
+}
+
+/* 代码块样式 */
+.stripe-code {
+  background: var(--stripe-dark);
+  border-radius: 8px;
+  font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+}
+@keyframes stripe-style-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes stripe-style-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.stripe-style-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stripe-style-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(99, 91, 255, 0.05), transparent);
+  pointer-events: none;
+}
+
+.stripe-style-card:hover::before {
+  opacity: 1;
+}
+
+.stripe-style-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(99, 91, 255, 0.08);
+}
+
+.stripe-style-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.stripe-style-animate-in {
+  animation: stripe-style-fade-in 0.5s ease-out both;
+}

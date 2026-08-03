@@ -1,0 +1,92 @@
+/* African Textile */
+/* African Textile Global Styles */
+
+:root {
+  --at-kente-orange: #c4501f;
+  --at-dark-wood: #2c1810;
+  --at-gold: #f0c75e;
+  --at-forest-green: #1a5632;
+  --at-sand: #e8d5b5;
+}
+
+/* Kente stripe pattern */
+.at-kente-stripe {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--at-kente-orange) 0px,
+    var(--at-kente-orange) 20px,
+    var(--at-gold) 20px,
+    var(--at-gold) 40px,
+    var(--at-forest-green) 40px,
+    var(--at-forest-green) 60px
+  );
+}
+
+/* Woven texture overlay */
+.at-woven-texture {
+  background-image:
+    linear-gradient(0deg, rgba(44, 24, 16, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44, 24, 16, 0.03) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Geometric block accent */
+.at-geo-block {
+  border: 2px solid var(--at-dark-wood);
+  box-shadow: 4px 4px 0px var(--at-dark-wood);
+}
+
+/* Earth tone card */
+.at-earth-card {
+  background-color: var(--at-sand);
+  border: 2px solid var(--at-dark-wood);
+  border-radius: 0.5rem;
+}
+
+/* Gold accent line */
+.at-gold-line {
+  height: 3px;
+  background: linear-gradient(90deg, var(--at-kente-orange), var(--at-gold), var(--at-forest-green));
+}
+@keyframes african-textile-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes african-textile-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.african-textile-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.african-textile-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(196, 80, 31, 0.05), transparent);
+  pointer-events: none;
+}
+
+.african-textile-card:hover::before {
+  opacity: 1;
+}
+
+.african-textile-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(196, 80, 31, 0.08);
+}
+
+.african-textile-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.african-textile-animate-in {
+  animation: african-textile-fade-in 0.5s ease-out both;
+}

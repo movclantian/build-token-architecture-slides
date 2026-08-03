@@ -1,0 +1,85 @@
+/* Geometric Bold */
+/* Geometric Bold Global Styles */
+@layer base {
+  body {
+    @apply bg-white text-black antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-black uppercase tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-black text-white;
+  }
+}
+
+/* Geometric shape utilities */
+.shape-circle {
+  @apply rounded-full;
+}
+
+.shape-square {
+  @apply rounded-none aspect-square;
+}
+/* Geometric Bold Design Tokens */
+:root {
+  --geometric-bold-primary: #000000;
+  --geometric-bold-secondary: #ffffff;
+  --geometric-bold-accent: #ff0000;
+  --geometric-bold-glow: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes geometric-bold-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes geometric-bold-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.geometric-bold-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.geometric-bold-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.geometric-bold-card:hover::before {
+  opacity: 1;
+}
+
+.geometric-bold-gradient {
+  background: linear-gradient(135deg, #000000, #ff0000);
+}
+
+.geometric-bold-gradient-text {
+  background: linear-gradient(135deg, #000000, #ff0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.geometric-bold-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.geometric-bold-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.geometric-bold-animate-in {
+  animation: geometric-bold-fade-in 0.5s ease-out both;
+}

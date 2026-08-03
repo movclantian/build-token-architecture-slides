@@ -1,0 +1,105 @@
+/* Japanese Fresh */
+/* Japanese Fresh Global Styles */
+
+:root {
+  --jf-sky: #64b5f6;
+  --jf-rice: #fafaf8;
+  --jf-mint: #98d8c8;
+  --jf-pink: #ffb7c5;
+  --jf-powder: #b8d4e3;
+  --jf-text: #4a5568;
+  --jf-muted: #b0b8c4;
+  --jf-border: #d4d4cf;
+}
+
+/* Linen paper texture */
+.jf-linen {
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='6' height='6' fill='%23fafaf8'/%3E%3Crect x='0' y='0' width='1' height='1' fill='%23e8e8e4' opacity='0.12'/%3E%3Crect x='3' y='3' width='1' height='1' fill='%23e8e8e4' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* Hairline divider */
+.jf-divider {
+  height: 0.5px;
+  background: var(--jf-border);
+  opacity: 0.4;
+}
+
+/* Bottom-line input focus */
+.jf-input-underline {
+  border: none;
+  border-bottom: 1px solid var(--jf-border);
+  border-radius: 0;
+  background: transparent;
+}
+.jf-input-underline:focus {
+  border-bottom-color: var(--jf-sky);
+  box-shadow: none;
+  outline: none;
+}
+
+/* Ma-based section spacing */
+.jf-ma-section {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+/* Botanical SVG accent */
+.jf-botanical {
+  opacity: 0.12;
+  stroke: var(--jf-muted);
+  fill: none;
+  stroke-width: 0.7;
+}
+@keyframes japanese-fresh-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes japanese-fresh-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.japanese-fresh-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.japanese-fresh-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(100, 181, 246, 0.05), transparent);
+  pointer-events: none;
+}
+
+.japanese-fresh-card:hover::before {
+  opacity: 1;
+}
+
+.japanese-fresh-gradient {
+  background: linear-gradient(135deg, #64b5f6, #98d8c8);
+}
+
+.japanese-fresh-gradient-text {
+  background: linear-gradient(135deg, #64b5f6, #98d8c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.japanese-fresh-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(100, 181, 246, 0.08);
+}
+
+.japanese-fresh-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.japanese-fresh-animate-in {
+  animation: japanese-fresh-fade-in 0.5s ease-out both;
+}

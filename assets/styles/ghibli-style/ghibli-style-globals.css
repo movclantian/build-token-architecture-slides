@@ -1,0 +1,76 @@
+/* Ghibli Style */
+/* Ghibli Style 全局样式 */
+
+:root {
+  --ghibli-sage: #7cb9a8;
+  --ghibli-cream: #f4e4bc;
+  --ghibli-coral: #e8a87c;
+  --ghibli-sky: #85cdca;
+  --ghibli-rose: #c38d94;
+  --ghibli-brown: #5a4a3a;
+}
+
+/* 柔和渐变背景 */
+.ghibli-sky-gradient {
+  background: linear-gradient(180deg, #87ceeb 0%, #b4e4f5 50%, #f4e4bc 100%);
+}
+
+/* 手绘风格边框 */
+.ghibli-border {
+  border: 2px solid rgba(212, 196, 154, 0.5);
+  border-radius: 1.5rem;
+}
+
+/* 云朵样式 */
+.ghibli-cloud {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 9999px;
+  filter: blur(4px);
+}
+
+/* 柔和阴影 */
+.ghibli-shadow {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+@keyframes ghibli-style-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ghibli-style-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.ghibli-style-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.ghibli-style-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(124, 185, 168, 0.05), transparent);
+  pointer-events: none;
+}
+
+.ghibli-style-card:hover::before {
+  opacity: 1;
+}
+
+.ghibli-style-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(124, 185, 168, 0.08);
+}
+
+.ghibli-style-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.ghibli-style-animate-in {
+  animation: ghibli-style-fade-in 0.5s ease-out both;
+}

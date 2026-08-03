@@ -1,0 +1,114 @@
+/* Shoujo Manga */
+/* Shoujo Manga Global Styles */
+
+:root {
+  --shoujo-pink: #ffb7c5;
+  --shoujo-pearl: #fff5f7;
+  --shoujo-lavender: #c4b5fd;
+  --shoujo-gold: #fde68a;
+  --shoujo-rose: #fecdd3;
+}
+
+/* Screentone dot pattern overlay */
+.shoujo-screentone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--shoujo-pink) 0.6px, transparent 0.6px);
+  background-size: 10px 10px;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* Floating petals animation */
+.shoujo-petals::before,
+.shoujo-petals::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--shoujo-pink);
+  border-radius: 50% 0 50% 50%;
+  opacity: 0.3;
+  animation: shoujoFloat 6s ease-in-out infinite;
+}
+.shoujo-petals::after {
+  width: 8px;
+  height: 8px;
+  animation-delay: -3s;
+  animation-duration: 8s;
+}
+@keyframes shoujoFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Sparkle star glow */
+.shoujo-sparkle {
+  position: relative;
+}
+.shoujo-sparkle::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background: var(--shoujo-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--shoujo-gold);
+  animation: shoujoSparkle 2s ease-in-out infinite;
+}
+@keyframes shoujoSparkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Ribbon banner with clip-path tails */
+.shoujo-ribbon {
+  position: relative;
+  display: inline-block;
+  padding: 4px 40px;
+  background: rgba(255, 183, 197, 0.15);
+  border-radius: 2px;
+}
+.shoujo-ribbon::before,
+.shoujo-ribbon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+}
+.shoujo-ribbon::before {
+  left: -12px;
+  background: rgba(255, 183, 197, 0.1);
+  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+.shoujo-ribbon::after {
+  right: -12px;
+  background: rgba(255, 183, 197, 0.1);
+  clip-path: polygon(0 0, 0 100%, 100% 50%);
+}
+
+/* Lace scallop border */
+.shoujo-lace {
+  position: relative;
+}
+.shoujo-lace::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 16px;
+  right: 16px;
+  height: 8px;
+  background-image: radial-gradient(circle at 50% 100%, white 6px, transparent 6px),
+    radial-gradient(circle at 50% 100%, var(--shoujo-pink) 7px, transparent 7px);
+  background-size: 16px 8px;
+  opacity: 0.3;
+}
+
+/* Soft glow */
+.shoujo-glow {
+  box-shadow: 0 0 20px rgba(255, 183, 197, 0.3);
+}

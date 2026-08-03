@@ -1,0 +1,102 @@
+/* Neon Gradient */
+/* Neon Gradient 全局样式 */
+:root {
+  --neon-bg: #0f0a1e;
+  --neon-purple: #a855f7;
+  --neon-pink: #ec4899;
+  --neon-cyan: #22d3ee;
+  --neon-green: #a3e635;
+  --neon-yellow: #fbbf24;
+}
+
+body {
+  background: var(--neon-bg);
+  color: white;
+}
+
+/* 发光文字 */
+.neon-text-purple {
+  color: var(--neon-purple);
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.neon-text-cyan {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+.neon-text-pink {
+  color: var(--neon-pink);
+  text-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
+}
+
+/* 渐变边框 */
+.neon-border-gradient {
+  border: 4px solid transparent;
+  background: linear-gradient(var(--neon-bg), var(--neon-bg)) padding-box,
+              linear-gradient(135deg, var(--neon-cyan), var(--neon-pink)) border-box;
+}
+
+/* 卡片发光 */
+.neon-glow-purple {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+}
+
+.neon-glow-pink {
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.4);
+}
+
+/* 动画 */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.neon-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px currentColor; }
+  50% { box-shadow: 0 0 40px currentColor; }
+}
+
+.neon-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+.neon-gradient-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-gradient-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), transparent);
+  pointer-events: none;
+}
+
+.neon-gradient-card:hover::before {
+  opacity: 1;
+}
+
+.neon-gradient-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(168, 85, 247, 0.08);
+}
+
+.neon-gradient-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.neon-gradient-animate-in {
+  animation: neon-gradient-fade-in 0.5s ease-out both;
+}

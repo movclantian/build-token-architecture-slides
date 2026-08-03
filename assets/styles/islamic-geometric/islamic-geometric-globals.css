@@ -1,0 +1,81 @@
+/* Islamic Geometric */
+/* Islamic Geometric 全局样式 */
+
+:root {
+  --ig-blue: #1a3a5c;
+  --ig-ivory: #f5ecd7;
+  --ig-gold: #c9a74e;
+  --ig-emerald: #2d7d46;
+  --ig-burgundy: #8b2332;
+}
+
+/* 金色渐变装饰线 */
+.ig-gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ig-gold), transparent);
+}
+
+/* 几何镶嵌背景 */
+.ig-tessellation {
+  background-image:
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg 60deg,
+      rgba(201, 167, 78, 0.08) 60deg 62deg,
+      transparent 62deg
+    );
+  background-size: 60px 60px;
+}
+
+/* 星形纹理 */
+.ig-star-pattern {
+  background-image:
+    radial-gradient(circle at 50% 50%, var(--ig-gold) 1px, transparent 1px),
+    radial-gradient(circle at 0% 0%, var(--ig-gold) 1px, transparent 1px),
+    radial-gradient(circle at 100% 0%, var(--ig-gold) 1px, transparent 1px),
+    radial-gradient(circle at 0% 100%, var(--ig-gold) 1px, transparent 1px),
+    radial-gradient(circle at 100% 100%, var(--ig-gold) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+}
+
+/* 装饰性角框 */
+.ig-corner-frame {
+  position: relative;
+}
+
+.ig-corner-frame::before,
+.ig-corner-frame::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--ig-gold);
+}
+
+.ig-corner-frame::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.ig-corner-frame::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+/* 拱形顶部 */
+.ig-arch {
+  border-radius: 50% 50% 0 0;
+}
+
+.islamic-geometric-filter { filter: brightness(1.05) contrast(1.02); }
+
+.islamic-geometric-hover-lift { transition: transform 0.3s ease; }
+
+.islamic-geometric-hover-lift:hover { transform: translateY(-2px); }
+
+.islamic-geometric-focus { outline: 2px solid var(--islamic-geometric-primary, currentColor); outline-offset: 2px; }

@@ -1,0 +1,99 @@
+/* Op Art */
+/* Op Art 全局样式 */
+
+:root {
+  --op-black: #000000;
+  --op-white: #ffffff;
+  --op-red: #ff3300;
+  --op-blue: #0066ff;
+  --op-yellow: #ffcc00;
+}
+
+/* 同心圆图案 */
+.op-concentric {
+  background-image: repeating-radial-gradient(
+    circle at center,
+    transparent 0px,
+    transparent 8px,
+    var(--op-black) 8px,
+    var(--op-black) 10px
+  );
+}
+
+/* 棋盘格 */
+.op-checkerboard {
+  background-image:
+    linear-gradient(45deg, var(--op-black) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--op-black) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--op-black) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--op-black) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* 条纹图案 */
+.op-stripes {
+  background-image: repeating-linear-gradient(
+    0deg,
+    var(--op-black) 0px,
+    var(--op-black) 4px,
+    var(--op-white) 4px,
+    var(--op-white) 8px
+  );
+}
+
+/* 莫尔条纹效果 */
+.op-moire {
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+}
+
+/* 振动色彩边框 */
+.op-vibrant-border {
+  border: 3px solid var(--op-red);
+  outline: 3px solid var(--op-blue);
+  outline-offset: 3px;
+}
+@keyframes op-art-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes op-art-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.op-art-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.op-art-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.op-art-card:hover::before {
+  opacity: 1;
+}
+
+.op-art-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.op-art-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.op-art-animate-in {
+  animation: op-art-fade-in 0.5s ease-out both;
+}

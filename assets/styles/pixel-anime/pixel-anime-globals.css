@@ -1,0 +1,67 @@
+/* Pixel Anime */
+/* Pixel Anime Global Styles */
+
+:root {
+  --pa-blue: #4a90d9;
+  --pa-dark: #2d1b69;
+  --pa-deep: #1a1040;
+  --pa-red: #ff6b6b;
+  --pa-gold: #ffd93d;
+  --pa-green: #50c878;
+  --pa-text: #e0e0ff;
+}
+
+/* RPG dialogue box frame with corner blocks */
+.pa-dialog-frame {
+  position: relative;
+  border: 2px solid var(--pa-blue);
+  background: var(--pa-deep);
+}
+.pa-dialog-frame::before,
+.pa-dialog-frame::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--pa-blue);
+}
+.pa-dialog-frame::before { top: -4px; left: -4px; }
+.pa-dialog-frame::after { top: -4px; right: -4px; }
+
+/* Pixel grid overlay */
+.pa-pixel-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26, 16, 64, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 16, 64, 0.12) 1px, transparent 1px);
+  background-size: 8px 8px;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+/* HP/MP/EXP status bar */
+.pa-status-bar {
+  height: 8px;
+  border: 2px solid var(--pa-deep);
+  background: var(--pa-deep);
+}
+.pa-status-bar-fill {
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+/* Pixel hard shadow */
+.pa-shadow {
+  box-shadow: 4px 4px 0px var(--pa-deep);
+}
+
+/* Blinking cursor animation */
+@keyframes pa-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.pa-blink {
+  animation: pa-blink 1s infinite;
+}

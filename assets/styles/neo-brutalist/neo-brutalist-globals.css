@@ -1,0 +1,78 @@
+/* Neo-Brutalist */
+/* Neo-Brutalist 全局样式 */
+:root {
+  --accent-pink: #ff006e;
+  --accent-green: #ccff00;
+  --accent-blue: #00d9ff;
+  --accent-yellow: #ff9500;
+}
+
+/* 标题字体 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+/* 正文字体 */
+body {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* 选中文字样式 */
+::selection {
+  background: var(--accent-pink);
+  color: white;
+}
+@keyframes neo-brutalist-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes neo-brutalist-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.neo-brutalist-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.neo-brutalist-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.neo-brutalist-card:hover::before {
+  opacity: 1;
+}
+
+.neo-brutalist-gradient {
+  background: linear-gradient(135deg, #000000, #ff006e);
+}
+
+.neo-brutalist-gradient-text {
+  background: linear-gradient(135deg, #000000, #ff006e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.neo-brutalist-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.neo-brutalist-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.neo-brutalist-animate-in {
+  animation: neo-brutalist-fade-in 0.5s ease-out both;
+}

@@ -1,0 +1,76 @@
+/* Watercolor Art */
+/* Watercolor Art Global Styles */
+
+:root {
+  --wc-rose: #d4a0a0;
+  --wc-paper: #faf6f0;
+  --wc-cerulean: #7bb8d4;
+  --wc-sage: #8cc5a8;
+  --wc-lavender: #c3a0d4;
+  --wc-ochre: #e8c87a;
+  --wc-text: #5a3e3e;
+}
+
+/* Paper grain texture overlay */
+.wc-paper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence baseFrequency='0.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Watercolor wash section background */
+.wc-wash {
+  position: relative;
+  overflow: hidden;
+}
+.wc-wash::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(ellipse at 30% 50%, var(--wc-rose) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, var(--wc-cerulean) 0%, transparent 50%);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* Organic bleeding edge border radius */
+.wc-bleed {
+  border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+}
+
+/* Botanical accent decoration */
+.wc-botanical::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: var(--wc-sage);
+  opacity: 0.12;
+  border-radius: 0 100% 0 100%;
+  filter: blur(4px);
+}
+@keyframes watercolor-art-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes watercolor-art-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.watercolor-art-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(212, 160, 160, 0.08);
+}
+
+.watercolor-art-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.watercolor-art-animate-in {
+  animation: watercolor-art-fade-in 0.5s ease-out both;
+}

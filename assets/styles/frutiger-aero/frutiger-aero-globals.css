@@ -1,0 +1,69 @@
+/* Frutiger Aero */
+/* Frutiger Aero Global Styles */
+
+:root {
+  --aero-sky-light: #87CEEB;
+  --aero-sky-dark: #5FB3CC;
+  --aero-glass-bg: rgba(255, 255, 255, 0.3);
+  --aero-glass-border: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes aero-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes aero-bubble {
+  0% { transform: translateY(100%) scale(0.5); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+}
+
+@keyframes aero-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.aero-glass {
+  background: var(--aero-glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--aero-glass-border);
+}
+.frutiger-aero-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.frutiger-aero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(135, 206, 235, 0.05), transparent);
+  pointer-events: none;
+}
+
+.frutiger-aero-card:hover::before {
+  opacity: 1;
+}
+
+.frutiger-aero-gradient {
+  background: linear-gradient(135deg, #87CEEB, #ffffff);
+}
+
+.frutiger-aero-gradient-text {
+  background: linear-gradient(135deg, #87CEEB, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.frutiger-aero-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.frutiger-aero-animate-in {
+  animation: frutiger-aero-fade-in 0.5s ease-out both;
+}

@@ -1,0 +1,83 @@
+/* Tropical Paradise */
+/* Tropical Paradise 全局样式 */
+
+:root {
+  --tp-teal: #00897b;
+  --tp-teal-dark: #00796b;
+  --tp-sunshine: #fffde7;
+  --tp-coral: #ff6f61;
+  --tp-mango: #ffc107;
+  --tp-palm: #4caf50;
+}
+
+/* 阳光渐变背景 */
+.tp-sunshine-bg {
+  background: linear-gradient(180deg, var(--tp-sunshine) 0%, #fff8e1 100%);
+}
+
+/* 热带色彩渐变 */
+.tp-tropical-gradient {
+  background: linear-gradient(135deg, var(--tp-teal) 0%, var(--tp-palm) 100%);
+}
+
+/* 珊瑚强调 */
+.tp-coral-accent {
+  background-color: rgba(255, 111, 97, 0.1);
+  color: var(--tp-coral);
+}
+
+/* 棕榈叶装饰阴影 */
+.tp-palm-shadow {
+  box-shadow: 0 4px 20px rgba(0, 137, 123, 0.15);
+}
+
+/* 度假卡片悬停效果 */
+.tp-card-hover {
+  transition: all 0.3s ease;
+}
+.tp-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 137, 123, 0.2);
+}
+@keyframes tropical-paradise-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tropical-paradise-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.tropical-paradise-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.tropical-paradise-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(0, 137, 123, 0.05), transparent);
+  pointer-events: none;
+}
+
+.tropical-paradise-card:hover::before {
+  opacity: 1;
+}
+
+.tropical-paradise-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(0, 137, 123, 0.08);
+}
+
+.tropical-paradise-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.tropical-paradise-animate-in {
+  animation: tropical-paradise-fade-in 0.5s ease-out both;
+}

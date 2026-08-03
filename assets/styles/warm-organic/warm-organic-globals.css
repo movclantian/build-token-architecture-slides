@@ -1,0 +1,110 @@
+/* Warm Organic */
+/* Warm Organic Global Styles */
+
+/* Signature warm shadow (claymorphism-lite) */
+.warm-organic-card-shadow {
+  box-shadow: 0 4px 20px -4px rgba(45, 42, 36, 0.10);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.warm-organic-card-shadow:hover {
+  box-shadow: 0 8px 30px -6px rgba(45, 42, 36, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Warm button shadow */
+.warm-organic-button-shadow {
+  box-shadow: 0 2px 12px -3px rgba(200, 106, 74, 0.3);
+}
+
+/* Organic decorative dot */
+.warm-organic-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+}
+
+.warm-organic-dot--terracotta {
+  background: #C86A4A;
+}
+
+.warm-organic-dot--olive {
+  background: #7A8B5E;
+}
+
+.warm-organic-dot--clay {
+  background: #D4BFA5;
+}
+
+/* Warm hairline divider */
+.warm-organic-hairline {
+  border: none;
+  border-top: 1px solid #D4BFA5;
+  opacity: 0.6;
+}
+
+/* Natural texture overlay (subtle paper grain) */
+.warm-organic-texture {
+  position: relative;
+}
+
+.warm-organic-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+/* Image treatment: rounded with warm undertone border */
+.warm-organic-image {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(212, 191, 165, 0.4);
+}
+
+/* Decorative organic divider */
+.warm-organic-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.warm-organic-divider::before,
+.warm-organic-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #D4BFA5;
+  opacity: 0.5;
+}
+
+.warm-organic-divider-dot {
+  display: inline-block;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background: rgba(200, 106, 74, 0.4);
+}
+
+/* Warm Organic Design Tokens */
+:root {
+  --warm-organic-paper: #F5F0EB;
+  --warm-organic-sand: #E8DED1;
+  --warm-organic-clay: #D4BFA5;
+  --warm-organic-ink: #2D2A24;
+  --warm-organic-terracotta: #C86A4A;
+  --warm-organic-olive: #7A8B5E;
+}
+
+@keyframes warm-organic-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.warm-organic-animate-in {
+  animation: warm-organic-fade-up 0.5s ease-out both;
+}

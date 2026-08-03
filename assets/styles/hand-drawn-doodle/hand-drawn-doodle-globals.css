@@ -1,0 +1,89 @@
+/* Hand-Drawn Doodle */
+/* Hand-Drawn Doodle Global Styles */
+
+:root {
+  --doodle-ink: #2c2c2c;
+  --doodle-paper: #fffef5;
+  --doodle-red: #ff6b6b;
+  --doodle-teal: #4ecdc4;
+  --doodle-yellow: #ffd93d;
+}
+
+/* Notebook lines background */
+.doodle-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    rgba(168, 200, 232, 0.35) 31px,
+    rgba(168, 200, 232, 0.35) 32px
+  );
+}
+
+/* Red margin line */
+.doodle-margin::before {
+  content: "";
+  position: absolute;
+  left: 120px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(255, 107, 107, 0.2);
+}
+
+/* Squiggly underline */
+.doodle-underline {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--doodle-red);
+  text-underline-offset: 4px;
+}
+
+/* Marker highlight */
+.doodle-highlight {
+  background: linear-gradient(
+    104deg,
+    transparent 0.9%,
+    rgba(255, 217, 61, 0.3) 2.4%,
+    rgba(255, 217, 61, 0.2) 97.1%,
+    transparent 98.2%
+  );
+  padding: 0 4px;
+}
+
+/* Tape decoration */
+.doodle-tape {
+  position: relative;
+}
+.doodle-tape::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 60px;
+  height: 20px;
+  background-color: rgba(255, 217, 61, 0.4);
+  border-radius: 1px;
+}
+
+/* Sketchy rotation */
+.doodle-tilt-left { transform: rotate(-1.5deg); }
+.doodle-tilt-right { transform: rotate(1.5deg); }
+
+/* Spiral binding holes */
+.doodle-binding-holes::before {
+  content: "";
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+  width: 16px;
+  background-image: radial-gradient(circle, transparent 5px, transparent 5px),
+    repeating-linear-gradient(
+      transparent,
+      transparent 60px,
+      rgba(44, 44, 44, 0.08) 60px,
+      rgba(44, 44, 44, 0.08) 76px,
+      transparent 76px
+    );
+}

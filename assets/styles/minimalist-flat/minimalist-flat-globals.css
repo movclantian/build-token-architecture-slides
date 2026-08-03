@@ -1,0 +1,76 @@
+/* Minimalist Flat */
+/* Minimalist Flat Global Styles */
+@layer base {
+  body {
+    @apply bg-white text-black antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-black text-white;
+  }
+}
+/* Minimalist Flat Design Tokens */
+:root {
+  --minimalist-flat-primary: #000000;
+  --minimalist-flat-secondary: #ffffff;
+  --minimalist-flat-accent: #ff3366;
+  --minimalist-flat-glow: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes minimalist-flat-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes minimalist-flat-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.minimalist-flat-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.minimalist-flat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.minimalist-flat-card:hover::before {
+  opacity: 1;
+}
+
+.minimalist-flat-gradient {
+  background: linear-gradient(135deg, #000000, #ff3366);
+}
+
+.minimalist-flat-gradient-text {
+  background: linear-gradient(135deg, #000000, #ff3366);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.minimalist-flat-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.minimalist-flat-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.minimalist-flat-animate-in {
+  animation: minimalist-flat-fade-in 0.5s ease-out both;
+}

@@ -1,0 +1,100 @@
+/* LaTeX Paper */
+/* LaTeX Paper global styles */
+:root {
+  --ltx-ink: #111111;
+  --ltx-paper: #FFFFFF;
+  --ltx-href: #0B5394;
+  --ltx-thm-bg: #F5F5F0;
+  --ltx-rule: #D4D4D0;
+  --ltx-muted: #6B6B66;
+}
+
+body {
+  font-family: "Computer Modern Serif", Georgia, Cambria, "Times New Roman", Times, serif;
+  background: var(--ltx-paper);
+  color: var(--ltx-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: inherit;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--ltx-thm-bg);
+  color: var(--ltx-ink);
+}
+
+/* Theorem environment: bold label, italic body, light fill */
+.ltx-theorem {
+  background: var(--ltx-thm-bg);
+  border-left: 2px solid var(--ltx-ink);
+  padding: 1.25rem 1.5rem;
+}
+.ltx-theorem .ltx-theorem-label {
+  font-weight: 700;
+  font-style: normal;
+}
+.ltx-theorem .ltx-theorem-body {
+  font-style: italic;
+}
+
+/* Display equation: centered formula, (n) tag on the right */
+.ltx-equation {
+  display: flex;
+  align-items: baseline;
+  margin: 1.5rem 0;
+}
+.ltx-equation .ltx-equation-math {
+  flex: 1;
+  text-align: center;
+  font-style: italic;
+}
+.ltx-equation .ltx-equation-tag {
+  font-style: normal;
+  color: var(--ltx-ink);
+}
+
+/* booktabs table: heavy top/bottom rules, thin midrule, no vertical rules */
+.ltx-booktabs {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid var(--ltx-ink);
+  border-bottom: 2px solid var(--ltx-ink);
+}
+.ltx-booktabs thead th {
+  border-bottom: 1px solid var(--ltx-ink);
+  font-weight: 400;
+  font-style: italic;
+  padding: 0.5rem 0.75rem;
+}
+.ltx-booktabs td {
+  padding: 0.45rem 0.75rem;
+}
+
+/* Hanging-indent reference list */
+.ltx-refs {
+  list-style: none;
+  padding: 0;
+}
+.ltx-refs li {
+  padding-left: 2rem;
+  text-indent: -2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Small-caps label, e.g. for keywords line */
+.ltx-smallcaps {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+@keyframes latex-paper-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.latex-paper-animate-in {
+  animation: latex-paper-fade-in 0.5s ease-out both;
+}

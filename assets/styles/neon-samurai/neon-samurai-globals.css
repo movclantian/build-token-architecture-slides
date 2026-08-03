@@ -1,0 +1,90 @@
+/* Neon Samurai */
+/* Neon Samurai Global Styles */
+
+:root {
+  --ns-red: #dc2626;
+  --ns-dark: #080818;
+  --ns-purple: #a020f0;
+  --ns-blue: #38bdf8;
+  --ns-gold: #fbbf24;
+}
+
+/* Dual-color neon text glow (red text, blue glow) */
+.ns-dual-glow {
+  text-shadow: 0 0 20px var(--ns-blue), 0 0 40px rgba(56, 189, 248, 0.3);
+  color: var(--ns-red);
+}
+
+/* Katana slash diagonal line */
+.ns-slash-line {
+  position: relative;
+}
+.ns-slash-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  right: -10%;
+  height: 2px;
+  background: linear-gradient(135deg, transparent 10%, var(--ns-red) 30%, var(--ns-red) 70%, transparent 90%);
+  box-shadow: 0 0 12px var(--ns-blue);
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+/* Torii gate frame */
+.ns-torii-frame {
+  border-top: 3px solid var(--ns-red);
+  border-left: 2px solid var(--ns-red);
+  border-right: 2px solid var(--ns-red);
+  box-shadow: 0 -4px 15px rgba(220, 38, 38, 0.3);
+  position: relative;
+}
+.ns-torii-frame::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--ns-red);
+  opacity: 0.5;
+}
+
+/* Armor-plate clip path */
+.ns-armor-clip {
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+/* Smoke overlay */
+.ns-smoke::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(220, 38, 38, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Scan line overlay */
+.ns-scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+}
+
+.neon-samurai-filter { filter: brightness(1.05) contrast(1.02); }
+
+.neon-samurai-focus { outline: 2px solid var(--neon-samurai-primary, currentColor); outline-offset: 2px; }
+
+/* Additional techniques */
+@keyframes neon-samurai-shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
+
+.neon-samurai-glass { backdrop-filter: blur(8px) saturate(150%); -webkit-backdrop-filter: blur(8px) saturate(150%); }

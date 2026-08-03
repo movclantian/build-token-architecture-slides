@@ -1,0 +1,81 @@
+/* Memphis */
+/* Memphis 全局样式 */
+
+:root {
+  --memphis-red: #ff6b6b;
+  --memphis-yellow: #feca57;
+  --memphis-cyan: #48dbfb;
+  --memphis-pink: #ff9ff3;
+  --memphis-green: #1dd1a1;
+  --memphis-purple: #5f27cd;
+}
+
+/* 孟菲斯阴影 */
+.memphis-shadow {
+  box-shadow: 6px 6px 0px #000;
+}
+
+/* 波浪线背景 */
+.memphis-waves {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q25 0 50 10 T100 10' stroke='%23000' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+}
+
+/* 点状图案 */
+.memphis-dots {
+  background-image: radial-gradient(#000 2px, transparent 2px);
+  background-size: 20px 20px;
+}
+
+/* 条纹图案 */
+.memphis-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #000 10px,
+    #000 12px
+  );
+}
+@keyframes memphis-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes memphis-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.memphis-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.memphis-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.05), transparent);
+  pointer-events: none;
+}
+
+.memphis-card:hover::before {
+  opacity: 1;
+}
+
+.memphis-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(255, 107, 107, 0.08);
+}
+
+.memphis-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.memphis-animate-in {
+  animation: memphis-fade-in 0.5s ease-out both;
+}

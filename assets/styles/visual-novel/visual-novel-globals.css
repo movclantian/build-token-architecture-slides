@@ -1,0 +1,87 @@
+/* Visual Novel */
+/* Visual Novel Global Styles */
+
+:root {
+  --vn-slate: #4a5568;
+  --vn-light: #f7fafc;
+  --vn-indigo: #6366f1;
+  --vn-pink: #ec4899;
+  --vn-emerald: #10b981;
+  --vn-dark: #1a202c;
+}
+
+/* Dialog box fade-in */
+.vn-dialog {
+  animation: vnFadeUp 0.5s ease-out;
+}
+@keyframes vnFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text typewriter effect */
+.vn-typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--vn-indigo);
+  white-space: nowrap;
+  animation: vnType 3s steps(40, end), vnBlink 0.75s step-end infinite;
+}
+@keyframes vnType {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes vnBlink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--vn-indigo); }
+}
+
+/* Ornate corner decoration frame */
+.vn-ornate-frame {
+  position: relative;
+}
+.vn-ornate-frame::before,
+.vn-ornate-frame::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+.vn-ornate-frame::before {
+  top: 8px;
+  left: 8px;
+  border-left: 2px solid rgba(99, 102, 241, 0.4);
+  border-top: 2px solid rgba(99, 102, 241, 0.4);
+}
+.vn-ornate-frame::after {
+  top: 8px;
+  right: 8px;
+  border-right: 2px solid rgba(99, 102, 241, 0.4);
+  border-top: 2px solid rgba(99, 102, 241, 0.4);
+}
+
+/* Character nameplate badge */
+.vn-nameplate {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Choice button hover glow */
+.vn-choice:hover {
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+}
+
+/* Scene gradient overlay */
+.vn-scene-sunset {
+  background: linear-gradient(180deg, #4a6fa5 0%, #7b9cc7 40%, #c4a882 70%, #e8c19a 100%);
+}

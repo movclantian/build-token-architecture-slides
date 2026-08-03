@@ -1,0 +1,40 @@
+/* Cinematic Video Hero */
+/* Cinematic Video Hero Global Styles */
+
+:root {
+  --cv-base: #05060A;
+  --cv-surface: #141821;
+  --cv-paper: #F3EFE8;
+  --cv-gold: #E4C063;
+  --cv-steel: #9AA6B8;
+}
+
+/* Full-bleed video / poster base */
+.cv-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Readability scrims */
+.cv-scrim-cinematic { background: linear-gradient(to top, rgba(5,6,10,0.78), rgba(5,6,10,0.2) 45%, rgba(5,6,10,0.45)); }
+
+/* Letterbox bars for a filmic frame (optional) */
+.cv-letterbox::before,
+.cv-letterbox::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 6vh;
+  background: #05060A;
+  z-index: 20;
+  pointer-events: none;
+}
+.cv-letterbox::before { top: 0; }
+.cv-letterbox::after { bottom: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* video is not autoplayed by script; poster stays. Nothing to animate. */
+}

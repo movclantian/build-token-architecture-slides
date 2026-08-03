@@ -1,0 +1,81 @@
+/* Cottagecore */
+/* Cottagecore Global Styles */
+
+:root {
+  --cottage-green: #5a8f5a;
+  --cottage-yellow: #f5d75f;
+  --cottage-brown: #8b7355;
+  --cottage-pink: #d4a0a0;
+  --cottage-cream: #faf6f0;
+}
+
+/* Linen texture background */
+.cottage-linen {
+  background-color: var(--cottage-cream);
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238b7355' fill-opacity='0.03'%3E%3Cpath d='M0 0h20v20H0zM20 20h20v20H20z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Floral border accent */
+.cottage-border {
+  border: 1px solid rgba(212, 160, 160, 0.4);
+  border-radius: 1rem;
+}
+
+/* Warm serif heading */
+.cottage-heading {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--cottage-brown);
+}
+@keyframes cottagecore-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cottagecore-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.cottagecore-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.cottagecore-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(90, 143, 90, 0.05), transparent);
+  pointer-events: none;
+}
+
+.cottagecore-card:hover::before {
+  opacity: 1;
+}
+
+.cottagecore-gradient {
+  background: linear-gradient(135deg, #5a8f5a, #f5d75f);
+}
+
+.cottagecore-gradient-text {
+  background: linear-gradient(135deg, #5a8f5a, #f5d75f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cottagecore-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(90, 143, 90, 0.08);
+}
+
+.cottagecore-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.cottagecore-animate-in {
+  animation: cottagecore-fade-in 0.5s ease-out both;
+}

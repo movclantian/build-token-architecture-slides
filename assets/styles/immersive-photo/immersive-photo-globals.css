@@ -1,0 +1,42 @@
+/* Immersive Photo */
+/* Immersive Photo Global Styles */
+
+:root {
+  --ip-ink: #0C0D10;
+  --ip-paper: #F4F1EA;
+  --ip-amber: #E8B04B;
+  --ip-mist: #B8BCC4;
+}
+
+/* Ken Burns — transform only, compositor-friendly */
+@keyframes ip-kenburns {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to { transform: scale(1.12) translate3d(-2%, -1.5%, 0); }
+}
+.ip-kenburns {
+  animation: ip-kenburns 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Full-bleed image base — always cover, explicit ratio at call site to avoid CLS */
+.ip-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Readability scrim presets */
+.ip-scrim-bottom { background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.15) 45%, transparent 70%); }
+.ip-scrim-full { background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.35)); }
+
+/* Blur-up: LQIP is a scaled-up tiny image; real frame fades in on load */
+.ip-lqip { filter: blur(16px); transform: scale(1.06); }
+.ip-frame { opacity: 0; transition: opacity 0.8s ease; }
+.ip-frame[data-loaded="true"] { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ip-kenburns { animation: none; }
+  .ip-frame { transition: none; }
+}

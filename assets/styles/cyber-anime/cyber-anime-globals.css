@@ -1,0 +1,89 @@
+/* Cyber Anime */
+/* Cyber Anime Global Styles */
+
+:root {
+  --ca-purple: #7c3aed;
+  --ca-dark: #0f0f1a;
+  --ca-cyan: #06d6a0;
+  --ca-pink: #ff006e;
+  --ca-blue: #38bdf8;
+  --ca-text: #e0e0ff;
+}
+
+/* Multi-layer neon glow */
+.ca-glow {
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.3),
+              0 0 20px rgba(124, 58, 237, 0.15),
+              0 0 40px rgba(124, 58, 237, 0.05);
+}
+
+/* Vertical scan line overlay */
+.ca-scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.02) 2px,
+    rgba(255, 255, 255, 0.02) 3px
+  );
+  pointer-events: none;
+}
+
+/* Holographic shimmer */
+.ca-holo {
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.1),
+    rgba(6, 214, 160, 0.1),
+    rgba(56, 189, 248, 0.1)
+  );
+}
+
+/* Hexagonal grid background */
+.ca-hex-grid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52'%3E%3Cpath d='M30 0 L60 15 L60 37 L30 52 L0 37 L0 15 Z' fill='none' stroke='%237c3aed' stroke-width='0.4' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* HUD corner frame */
+.ca-hud-frame {
+  position: relative;
+}
+.ca-hud-frame::before,
+.ca-hud-frame::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: rgba(6, 214, 160, 0.5);
+}
+.ca-hud-frame::before {
+  top: 0; left: 0;
+  border-left: 2px solid;
+  border-top: 2px solid;
+}
+.ca-hud-frame::after {
+  bottom: 0; right: 0;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+
+/* Mecha angled corners */
+.ca-mecha-clip {
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+.cyber-anime-filter { filter: brightness(1.05) contrast(1.02); }
+
+.cyber-anime-hover-lift { transition: transform 0.3s ease; }
+
+.cyber-anime-hover-lift:hover { transform: translateY(-2px); }
+
+.cyber-anime-focus { outline: 2px solid var(--cyber-anime-primary, currentColor); outline-offset: 2px; }
+
+/* Additional techniques */
+@keyframes cyber-anime-shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
+
+.cyber-anime-glass { backdrop-filter: blur(8px) saturate(150%); -webkit-backdrop-filter: blur(8px) saturate(150%); }

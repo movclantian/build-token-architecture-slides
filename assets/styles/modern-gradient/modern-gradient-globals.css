@@ -1,0 +1,68 @@
+/* Modern Gradient */
+/* Modern Gradient Global Styles */
+@layer base {
+  body {
+    @apply bg-slate-950 text-white antialiased;
+  }
+}
+
+/* Gradient text utility */
+.gradient-text {
+  @apply bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent;
+}
+
+/* Glow orb decoration */
+.glow-orb {
+  @apply absolute blur-3xl opacity-30 pointer-events-none;
+}
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+/* Modern Gradient Design Tokens */
+:root {
+  --modern-gradient-primary: #8b5cf6;
+  --modern-gradient-secondary: #1e1b4b;
+  --modern-gradient-accent: #06b6d4;
+  --modern-gradient-glow: rgba(139, 92, 246, 0.3);
+}
+
+.modern-gradient-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-gradient-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), transparent);
+  pointer-events: none;
+}
+
+.modern-gradient-card:hover::before {
+  opacity: 1;
+}
+
+.modern-gradient-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.modern-gradient-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.modern-gradient-animate-in {
+  animation: modern-gradient-fade-in 0.5s ease-out both;
+}

@@ -1,0 +1,81 @@
+/* Medieval Manuscript */
+/* Medieval Manuscript Global Styles */
+
+:root {
+  --ms-red: #8b1a1a;
+  --ms-parchment: #f0e6d0;
+  --ms-gold: #c9a74e;
+  --ms-green: #2d4a2d;
+  --ms-brown: #3d2b1f;
+}
+
+/* Drop cap - illuminated first letter */
+.ms-drop-cap::first-letter {
+  float: left;
+  font-size: 4em;
+  line-height: 0.8;
+  padding-right: 8px;
+  color: var(--ms-gold);
+  font-weight: bold;
+}
+
+/* Gold leaf shimmer */
+.ms-gold-leaf {
+  color: var(--ms-gold);
+  text-shadow: 1px 1px 2px rgba(201, 167, 78, 0.4);
+}
+
+/* Decorative double-line border */
+.ms-ornate-border {
+  border: 4px double var(--ms-gold);
+  position: relative;
+}
+.ms-ornate-border::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(201, 167, 78, 0.3);
+  pointer-events: none;
+}
+
+/* Corner flourish */
+.ms-corner-flourish {
+  position: relative;
+}
+.ms-corner-flourish::before,
+.ms-corner-flourish::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--ms-gold);
+  opacity: 0.6;
+}
+.ms-corner-flourish::before {
+  top: 4px;
+  left: 4px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+.ms-corner-flourish::after {
+  bottom: 4px;
+  right: 4px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+/* Parchment texture */
+.ms-parchment {
+  background-color: var(--ms-parchment);
+  background-image:
+    radial-gradient(circle at 30% 40%, rgba(61, 43, 31, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(139, 26, 26, 0.02) 0%, transparent 40%);
+}
+
+/* Manuscript column text */
+.ms-column-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.8;
+  text-align: justify;
+  hyphens: auto;
+}

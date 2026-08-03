@@ -1,0 +1,66 @@
+/* Neon Tokyo */
+/* Neon Tokyo Global Styles */
+@layer base {
+  body {
+    @apply bg-[#0a0a1a] text-white antialiased;
+  }
+
+  h1, h2, h3 {
+    text-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+  }
+
+  ::selection {
+    @apply bg-[#ff1493] text-white;
+  }
+}
+
+/* Wet street reflection */
+.neon-tokyo-reflect {
+  position: relative;
+}
+.neon-tokyo-reflect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(255, 20, 147, 0.03) 80%,
+    rgba(0, 240, 255, 0.03) 100%
+  );
+  pointer-events: none;
+}
+
+@keyframes neon-flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: 0.6; }
+  97% { opacity: 1; }
+  98% { opacity: 0.8; }
+}
+/* Neon Tokyo Design Tokens */
+:root {
+  --neon-tokyo-primary: #ff1493;
+  --neon-tokyo-secondary: #0a0a1a;
+  --neon-tokyo-accent: #00f0ff;
+  --neon-tokyo-glow: rgba(255, 20, 147, 0.3);
+}
+
+.neon-tokyo-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(255, 20, 147, 0.08);
+}
+
+.neon-tokyo-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.neon-tokyo-animate-in {
+  animation: neon-tokyo-fade-in 0.5s ease-out both;
+}
+
+.neon-tokyo-hover-lift { transition: transform 0.3s ease; }
+
+.neon-tokyo-hover-lift:hover { transform: translateY(-2px); }
+
+.neon-tokyo-focus { outline: 2px solid var(--neon-tokyo-primary, currentColor); outline-offset: 2px; }

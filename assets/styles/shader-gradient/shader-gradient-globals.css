@@ -1,0 +1,50 @@
+/* Shader Gradient */
+/* Shader Gradient Global Styles */
+
+:root {
+  --sg-base: #08090D;
+  --sg-surface: #12131A;
+  --sg-paper: #EDEEF2;
+  --sg-violet: #7C5CFF;
+  --sg-cyan: #22D3EE;
+  --sg-magenta: #F472B6;
+}
+
+/* Full-bleed shader canvas base */
+.sg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* CSS static-gradient fallback (WebGL unavailable / under the canvas) */
+.sg-fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 60% at 28% 32%, rgba(124, 92, 255, 0.35), transparent 70%),
+    radial-gradient(55% 55% at 74% 58%, rgba(34, 211, 238, 0.22), transparent 70%),
+    radial-gradient(50% 60% at 55% 85%, rgba(244, 114, 182, 0.20), transparent 70%),
+    #08090D;
+}
+
+/* Frosted-glass panel */
+.sg-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 1rem;
+}
+
+/* Readability scrim under text over the gradient */
+.sg-scrim {
+  background: linear-gradient(to top, rgba(8, 9, 13, 0.7), rgba(8, 9, 13, 0.1) 55%, rgba(8, 9, 13, 0.35));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* the shader loop is not started by script; a single static frame stays */
+  .sg-canvas { animation: none; }
+}

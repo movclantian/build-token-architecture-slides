@@ -1,0 +1,89 @@
+/* Zen Garden */
+/* Zen Garden (Karesansui) */
+:root {
+  --zen-bg: #f5f3ee;
+  --zen-surface: #ede9e1;
+  --zen-text: #4a5548;
+  --zen-muted: #7a7062;
+  --zen-moss: #8a9a7b;
+  --zen-sand: #c4bba8;
+  --zen-stone: #7a7062;
+  --zen-border: #c4bba8;
+}
+@keyframes zen-garden-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zen-garden-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.zen-garden-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.zen-garden-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(74, 85, 72, 0.05), transparent);
+  pointer-events: none;
+}
+
+.zen-garden-card:hover::before {
+  opacity: 1;
+}
+
+.zen-garden-gradient {
+  background: linear-gradient(135deg, #4a5548, #8a9a7b);
+}
+
+.zen-garden-gradient-text {
+  background: linear-gradient(135deg, #4a5548, #8a9a7b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.zen-garden-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(74, 85, 72, 0.08);
+}
+
+.zen-garden-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.zen-garden-animate-in {
+  animation: zen-garden-fade-in 0.5s ease-out both;
+}
+
+.zen-garden-focus { outline: 2px solid var(--zen-garden-primary, currentColor); outline-offset: 2px; }
+
+/* Responsive utilities */
+@media (prefers-reduced-motion: reduce) {
+  .zen-garden-animate-in {
+    animation: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .zen-garden-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+}
+
+/* Print styles */
+@media print {
+  .zen-garden-gradient,
+  .zen-garden-frosted {
+    background: none;
+    backdrop-filter: none;
+  }
+}

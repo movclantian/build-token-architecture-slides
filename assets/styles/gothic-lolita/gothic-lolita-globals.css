@@ -1,0 +1,92 @@
+/* Gothic Lolita */
+/* Gothic Lolita 全局样式 */
+
+:root {
+  --gl-black: #0a0a0a;
+  --gl-purple: #4a1a4a;
+  --gl-red: #8b1a2a;
+  --gl-silver: #e5e5e5;
+}
+
+/* 蕾丝花边装饰 */
+.gl-lace-border {
+  border-image: repeating-linear-gradient(
+    90deg,
+    var(--gl-purple) 0px,
+    var(--gl-purple) 4px,
+    transparent 4px,
+    transparent 8px
+  ) 1;
+}
+
+/* 哥特十字架装饰 */
+.gl-cross::before {
+  content: "+";
+  font-size: 1.2em;
+  color: var(--gl-red);
+  margin-right: 0.5em;
+}
+
+/* 玫瑰阴影 */
+.gl-rose-shadow {
+  box-shadow:
+    0 4px 16px rgba(139, 26, 42, 0.3),
+    inset 0 1px 0 rgba(229, 229, 229, 0.1);
+}
+
+/* 暗色渐变 */
+.gl-dark-gradient {
+  background: linear-gradient(
+    to bottom,
+    #0a0a0a 0%,
+    #1a0a1a 50%,
+    #0a0a0a 100%
+  );
+}
+@keyframes gothic-lolita-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gothic-lolita-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.gothic-lolita-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(74, 26, 74, 0.08);
+}
+
+.gothic-lolita-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.gothic-lolita-animate-in {
+  animation: gothic-lolita-fade-in 0.5s ease-out both;
+}
+
+.gothic-lolita-focus { outline: 2px solid var(--gothic-lolita-primary, currentColor); outline-offset: 2px; }
+
+/* Responsive utilities */
+@media (prefers-reduced-motion: reduce) {
+  .gothic-lolita-animate-in {
+    animation: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .gothic-lolita-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+}
+
+/* Print styles */
+@media print {
+  .gothic-lolita-gradient,
+  .gothic-lolita-frosted {
+    background: none;
+    backdrop-filter: none;
+  }
+}

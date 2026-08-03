@@ -1,0 +1,109 @@
+/* Apple Style */
+/* Apple Style 全局样式 */
+
+:root {
+  --apple-black: #000000;
+  --apple-white: #ffffff;
+  --apple-gray: #f5f5f7;
+  --apple-blue: #0071e3;
+  --apple-blue-hover: #0077ed;
+  --apple-green: #34c759;
+  --apple-red: #ff3b30;
+}
+
+/* Apple 风格字体 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apple 风格标题 */
+.apple-headline {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Apple 风格链接 */
+.apple-link {
+  color: var(--apple-blue);
+  text-decoration: none;
+}
+
+.apple-link:hover {
+  text-decoration: underline;
+}
+
+/* Apple 风格按钮 */
+.apple-button {
+  background: var(--apple-blue);
+  color: white;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.apple-button:hover {
+  background: var(--apple-blue-hover);
+}
+
+/* Apple 风格卡片 */
+.apple-card {
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+@keyframes apple-style-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes apple-style-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.apple-style-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.apple-style-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.apple-style-card:hover::before {
+  opacity: 1;
+}
+
+.apple-style-gradient {
+  background: linear-gradient(135deg, #000000, #0071e3);
+}
+
+.apple-style-gradient-text {
+  background: linear-gradient(135deg, #000000, #0071e3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.apple-style-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.apple-style-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.apple-style-animate-in {
+  animation: apple-style-fade-in 0.5s ease-out both;
+}

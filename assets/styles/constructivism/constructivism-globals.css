@@ -1,0 +1,87 @@
+/* Constructivism */
+/* Constructivism 全局样式 */
+
+:root {
+  --cstv-red: #cc0000;
+  --cstv-paper: #f2e8d5;
+  --cstv-black: #1a1a1a;
+  --cstv-gold: #d4a843;
+  --cstv-brown: #8b4513;
+}
+
+/* 对角线条纹 */
+.cstv-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    var(--cstv-red) 10px,
+    var(--cstv-red) 12px
+  );
+}
+
+/* 革命红块 */
+.cstv-red-block {
+  background: var(--cstv-red);
+  transform: skewX(-6deg);
+}
+
+/* 宣传海报边框 */
+.cstv-poster-border {
+  border: 4px solid var(--cstv-black);
+  box-shadow: 6px 6px 0 var(--cstv-black);
+}
+
+/* 版画纹理叠加 */
+.cstv-texture {
+  background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3h1v1H1V3zm2-2h1v1H3V1z' fill='%231a1a1a' fill-opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* 对角线分隔 */
+.cstv-diagonal-divider {
+  height: 4px;
+  background: var(--cstv-black);
+  transform: rotate(-2deg);
+}
+@keyframes constructivism-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes constructivism-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.constructivism-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.constructivism-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(204, 0, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.constructivism-card:hover::before {
+  opacity: 1;
+}
+
+.constructivism-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(204, 0, 0, 0.08);
+}
+
+.constructivism-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.constructivism-animate-in {
+  animation: constructivism-fade-in 0.5s ease-out both;
+}

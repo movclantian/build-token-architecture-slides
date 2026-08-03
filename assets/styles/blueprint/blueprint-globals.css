@@ -1,0 +1,74 @@
+/* Blueprint */
+/* Blueprint Global Styles */
+@layer base {
+  body {
+    @apply bg-[#1e3a5f] text-white antialiased;
+    font-family: 'Courier New', Courier, monospace;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  ::selection {
+    @apply bg-[#4a90d9] text-white;
+  }
+}
+
+/* Blueprint grid (denser) */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+}
+
+/* Dimension line */
+.blueprint-dimension {
+  border-top: 1px solid rgba(255, 107, 53, 0.6);
+  position: relative;
+}
+.blueprint-dimension::before,
+.blueprint-dimension::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: rgba(255, 107, 53, 0.6);
+}
+.blueprint-dimension::before { left: 0; }
+.blueprint-dimension::after { right: 0; }
+/* Blueprint Design Tokens */
+:root {
+  --blueprint-primary: #ffffff;
+  --blueprint-secondary: #1e3a5f;
+  --blueprint-accent: #4a90d9;
+  --blueprint-glow: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes blueprint-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blueprint-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.blueprint-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.blueprint-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.blueprint-animate-in {
+  animation: blueprint-fade-in 0.5s ease-out both;
+}

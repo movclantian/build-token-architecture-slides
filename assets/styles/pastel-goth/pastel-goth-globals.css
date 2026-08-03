@@ -1,0 +1,71 @@
+/* Pastel Goth */
+/* Pastel Goth Global Styles */
+
+:root {
+  --pg-dark-purple: #2d1b3d;
+  --pg-near-black: #1a1225;
+  --pg-lavender: #d4a5e3;
+  --pg-pastel-teal: #7ec8c8;
+  --pg-pastel-pink: #f5a5b8;
+  --pg-periwinkle: #b8a5f5;
+}
+
+/* Pastel glow text */
+.pg-glow-text {
+  text-shadow:
+    0 0 10px rgba(212, 165, 227, 0.3),
+    0 0 20px rgba(212, 165, 227, 0.15);
+}
+
+/* Pink glow */
+.pg-pink-glow {
+  text-shadow:
+    0 0 10px rgba(245, 165, 184, 0.3),
+    0 0 20px rgba(245, 165, 184, 0.15);
+}
+
+/* Ambient background orb */
+.pg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.05;
+}
+
+/* Pastel gradient */
+.pg-gradient {
+  background: linear-gradient(135deg, var(--pg-lavender), var(--pg-pastel-pink), var(--pg-periwinkle));
+}
+
+/* Dark card */
+.pg-card {
+  background-color: var(--pg-near-black);
+  border: 1px solid rgba(212, 165, 227, 0.15);
+  border-radius: 0.75rem;
+}
+
+/* Cross symbol */
+.pg-cross {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.pg-cross::before,
+.pg-cross::after {
+  content: '';
+  position: absolute;
+  background-color: var(--pg-periwinkle);
+  opacity: 0.3;
+}
+.pg-cross::before {
+  width: 2px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pg-cross::after {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}

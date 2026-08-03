@@ -1,0 +1,82 @@
+/* Generative Art */
+/* Generative Art Global Styles */
+@layer base {
+  body {
+    @apply bg-[#0a0a0a] text-white antialiased;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  ::selection {
+    @apply bg-violet-600 text-white;
+  }
+}
+
+@keyframes gen-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes gen-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+@keyframes gen-drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(10px, -10px); }
+  50% { transform: translate(-5px, 15px); }
+  75% { transform: translate(-15px, -5px); }
+}
+@keyframes gen-hue-cycle {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+/* Generative Art Design Tokens */
+:root {
+  --generative-art-primary: #7c3aed;
+  --generative-art-secondary: #0a0a0a;
+  --generative-art-accent: #3b82f6;
+  --generative-art-glow: rgba(124, 58, 237, 0.3);
+}
+
+.generative-art-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.generative-art-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), transparent);
+  pointer-events: none;
+}
+
+.generative-art-card:hover::before {
+  opacity: 1;
+}
+
+.generative-art-gradient {
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+}
+
+.generative-art-gradient-text {
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.generative-art-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.generative-art-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.generative-art-animate-in {
+  animation: generative-art-fade-in 0.5s ease-out both;
+}

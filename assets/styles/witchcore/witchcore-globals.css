@@ -1,0 +1,70 @@
+/* Witchcore */
+/* Witchcore Global Styles */
+@layer base {
+  body {
+    @apply bg-[#0d0b14] text-[#c9a74e]/80 antialiased;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  h1, h2, h3 {
+    text-shadow: 0 0 12px rgba(201, 167, 78, 0.3);
+  }
+
+  ::selection {
+    @apply bg-[#4a1942] text-[#c9a74e];
+  }
+}
+
+/* Stardust background */
+.witchcore-stardust {
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(201, 167, 78, 0.3), transparent),
+    radial-gradient(1px 1px at 30% 60%, rgba(123, 104, 174, 0.2), transparent),
+    radial-gradient(1px 1px at 70% 40%, rgba(201, 167, 78, 0.2), transparent),
+    radial-gradient(1px 1px at 90% 80%, rgba(61, 139, 110, 0.2), transparent);
+}
+
+@keyframes rune-pulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(201, 167, 78, 0.4); }
+  50% { opacity: 0.8; text-shadow: 0 0 16px rgba(201, 167, 78, 0.6); }
+}
+/* Witchcore Design Tokens */
+:root {
+  --witchcore-primary: #4a1942;
+  --witchcore-secondary: #0d0b14;
+  --witchcore-accent: #c9a74e;
+  --witchcore-glow: rgba(74, 25, 66, 0.3);
+}
+
+.witchcore-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.witchcore-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(74, 25, 66, 0.05), transparent);
+  pointer-events: none;
+}
+
+.witchcore-card:hover::before {
+  opacity: 1;
+}
+
+.witchcore-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(74, 25, 66, 0.08);
+}
+
+.witchcore-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.witchcore-animate-in {
+  animation: witchcore-fade-in 0.5s ease-out both;
+}

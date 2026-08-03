@@ -1,0 +1,106 @@
+/* Cyber Wafuu */
+/* Cyber Wafuu Global Styles */
+
+:root {
+  --cw-indigo: #1e3a5f;
+  --cw-dark: #080814;
+  --cw-vermillion: #c41e3a;
+  --cw-gold: #c9a227;
+  --cw-blue: #38bdf8;
+}
+
+/* Seigaiha wave pattern (digital version) */
+.cw-seigaiha {
+  background-image:
+    radial-gradient(circle at 50% 100%, transparent 60%, rgba(56, 189, 248, 0.04) 60%, rgba(56, 189, 248, 0.04) 62%, transparent 62%),
+    radial-gradient(circle at 0% 100%, transparent 60%, rgba(56, 189, 248, 0.04) 60%, rgba(56, 189, 248, 0.04) 62%, transparent 62%);
+  background-size: 60px 30px;
+}
+
+/* Kintsugi gold crack line */
+.cw-kintsugi {
+  position: relative;
+}
+.cw-kintsugi::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  right: 8px;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--cw-gold) 15%,
+    transparent 30%,
+    var(--cw-gold) 50%,
+    transparent 65%,
+    var(--cw-gold) 80%,
+    transparent 100%
+  );
+  opacity: 0.3;
+  box-shadow: 0 0 6px rgba(201, 162, 39, 0.3);
+}
+
+/* Shoji screen grid */
+.cw-shoji-grid {
+  position: relative;
+}
+.cw-shoji-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(30, 58, 95, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 58, 95, 0.12) 1px, transparent 1px);
+  background-size: 33.33% 50%;
+  pointer-events: none;
+}
+
+/* Circuit trace decoration */
+.cw-circuit::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--cw-blue) 15%,
+    transparent 35%,
+    var(--cw-blue) 55%,
+    transparent 75%,
+    var(--cw-blue) 90%,
+    transparent 100%
+  );
+  opacity: 0.2;
+}
+
+/* Asanoha hemp leaf pattern overlay */
+.cw-asanoha {
+  background-image:
+    linear-gradient(30deg, rgba(30, 58, 95, 0.06) 12%, transparent 12.5%, transparent 87%, rgba(30, 58, 95, 0.06) 87.5%),
+    linear-gradient(150deg, rgba(30, 58, 95, 0.06) 12%, transparent 12.5%, transparent 87%, rgba(30, 58, 95, 0.06) 87.5%),
+    linear-gradient(30deg, rgba(30, 58, 95, 0.06) 12%, transparent 12.5%, transparent 87%, rgba(30, 58, 95, 0.06) 87.5%),
+    linear-gradient(150deg, rgba(30, 58, 95, 0.06) 12%, transparent 12.5%, transparent 87%, rgba(30, 58, 95, 0.06) 87.5%);
+  background-size: 40px 70px;
+  background-position: 0 0, 0 0, 20px 35px, 20px 35px;
+}
+
+/* Gold foil shimmer */
+.cw-gold-foil {
+  background: linear-gradient(
+    135deg,
+    rgba(201, 162, 39, 0.08) 0%,
+    rgba(201, 162, 39, 0.03) 50%,
+    rgba(201, 162, 39, 0.12) 100%
+  );
+}
+
+.cyber-wafuu-filter { filter: brightness(1.05) contrast(1.02); }
+
+.cyber-wafuu-hover-lift { transition: transform 0.3s ease; }
+
+.cyber-wafuu-hover-lift:hover { transform: translateY(-2px); }
+
+.cyber-wafuu-focus { outline: 2px solid var(--cyber-wafuu-primary, currentColor); outline-offset: 2px; }

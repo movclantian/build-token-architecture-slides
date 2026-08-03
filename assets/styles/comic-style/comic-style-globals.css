@@ -1,0 +1,95 @@
+/* Comic Style */
+/* Comic Style 全局样式 */
+
+:root {
+  --comic-black: #1a1a1a;
+  --comic-white: #ffffff;
+  --comic-red: #ff3333;
+  --comic-yellow: #ffcc00;
+  --comic-blue: #3366ff;
+  --comic-green: #33cc33;
+}
+
+/* 半调网点背景 */
+.comic-halftone {
+  background-image: radial-gradient(circle, var(--comic-black) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+/* 对话气泡 */
+.comic-bubble {
+  position: relative;
+  background: white;
+  border: 4px solid var(--comic-black);
+  border-radius: 24px;
+  padding: 16px 20px;
+}
+
+.comic-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 20px solid var(--comic-black);
+}
+
+/* 动作线 */
+.comic-speed-lines {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    rgba(0, 0, 0, 0.05) 8px,
+    rgba(0, 0, 0, 0.05) 10px
+  );
+}
+
+/* 漫画面板边框 */
+.comic-panel {
+  border: 4px solid var(--comic-black);
+  box-shadow: 6px 6px 0 var(--comic-black);
+}
+
+/* 漫画文字效果 */
+.comic-text {
+  font-family: 'Comic Sans MS', 'Bangers', cursive, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+/* 爆炸效果标签 — hover 时弹出 */
+.comic-burst {
+  background: var(--comic-yellow);
+  border: 3px solid var(--comic-black);
+  font-weight: 900;
+  transform: rotate(-3deg) scale(0);
+  transition: transform 0.1s ease-out;
+}
+
+.group:hover .comic-burst {
+  transform: rotate(-3deg) scale(1);
+}
+
+/* Pop-art 按钮弹出 */
+.comic-pop {
+  transition: all 0.1s ease-out;
+  cursor: crosshair;
+}
+
+.comic-pop:hover {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 10px 10px 0 var(--comic-black);
+}
+
+.comic-pop:active {
+  transform: scale(0.95) rotate(2deg) translate(4px, 4px);
+  box-shadow: none;
+}
+
+.comic-style-filter { filter: brightness(1.05) contrast(1.02); }
+
+.comic-style-focus { outline: 2px solid var(--comic-style-primary, currentColor); outline-offset: 2px; }

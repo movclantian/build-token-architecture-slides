@@ -1,0 +1,78 @@
+/* Linear Style */
+/* Linear Style Global Styles */
+@layer base {
+  body {
+    @apply bg-[#0a0a0b] text-white antialiased;
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .linear-border {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .linear-surface {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .linear-surface-hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .linear-gradient {
+    background: linear-gradient(to right, #5e6ad2, #8b5cf6);
+  }
+}
+/* Linear Style Design Tokens */
+:root {
+  --linear-style-primary: #5e6ad2;
+  --linear-style-secondary: #0a0a0b;
+  --linear-style-accent: #f2c94c;
+  --linear-style-glow: rgba(94, 106, 210, 0.3);
+}
+
+@keyframes linear-style-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes linear-style-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.linear-style-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.linear-style-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(94, 106, 210, 0.05), transparent);
+  pointer-events: none;
+}
+
+.linear-style-card:hover::before {
+  opacity: 1;
+}
+
+.linear-style-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(94, 106, 210, 0.08);
+}
+
+.linear-style-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.linear-style-animate-in {
+  animation: linear-style-fade-in 0.5s ease-out both;
+}

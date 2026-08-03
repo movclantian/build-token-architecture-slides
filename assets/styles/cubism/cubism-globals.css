@@ -1,0 +1,80 @@
+/* Cubism */
+/* Cubism 全局样式 */
+
+:root {
+  --cb-sienna: #5c4033;
+  --cb-canvas: #e8dcc8;
+  --cb-khaki: #8b7355;
+  --cb-steel: #3d5c6e;
+  --cb-terracotta: #9b3d25;
+}
+
+/* 碎片化装饰元素 */
+.cb-fragment {
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+
+.cb-fragment-alt {
+  clip-path: polygon(0% 0%, 85% 5%, 100% 100%, 15% 95%);
+}
+
+/* 几何硬阴影 */
+.cb-hard-shadow {
+  box-shadow: 6px 6px 0px var(--cb-sienna);
+}
+
+.cb-hard-shadow-sm {
+  box-shadow: 3px 3px 0px var(--cb-sienna);
+}
+
+/* 倾斜装饰线 */
+.cb-skew-line {
+  height: 2px;
+  background: var(--cb-terracotta);
+  transform: skewX(-12deg);
+}
+
+/* 多视角背景 */
+.cb-multi-perspective {
+  background-image:
+    linear-gradient(135deg, rgba(61, 92, 110, 0.05) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(155, 61, 37, 0.05) 25%, transparent 25%);
+}
+@keyframes cubism-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cubism-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.cubism-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.cubism-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(92, 64, 51, 0.05), transparent);
+  pointer-events: none;
+}
+
+.cubism-card:hover::before {
+  opacity: 1;
+}
+
+.cubism-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(92, 64, 51, 0.08);
+}
+
+.cubism-animate-in {
+  animation: cubism-fade-in 0.5s ease-out both;
+}

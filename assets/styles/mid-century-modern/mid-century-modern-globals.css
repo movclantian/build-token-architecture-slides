@@ -1,0 +1,90 @@
+/* Mid-Century Modern */
+/* Mid-Century Modern 全局样式 */
+
+:root {
+  --mcm-orange: #e8572a;
+  --mcm-cream: #f5f0e1;
+  --mcm-teal: #2a6e5e;
+  --mcm-gold: #c4a35a;
+  --mcm-charcoal: #3d3d3d;
+}
+
+/* 有机形状 */
+.mcm-organic {
+  border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+}
+
+/* 星芒装饰 */
+.mcm-starburst {
+  background-image: conic-gradient(
+    from 0deg,
+    transparent 0deg 30deg,
+    rgba(196, 163, 90, 0.08) 30deg 33deg,
+    transparent 33deg 60deg
+  );
+}
+
+/* 复古分隔线 */
+.mcm-divider {
+  height: 3px;
+  background: var(--mcm-orange);
+  border-radius: 999px;
+  max-width: 80px;
+}
+
+/* 卡片悬浮效果 */
+.mcm-card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mcm-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--mcm-charcoal);
+}
+
+/* 肾形容器 */
+.mcm-kidney {
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+@keyframes mid-century-modern-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mid-century-modern-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.mid-century-modern-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.mid-century-modern-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(232, 87, 42, 0.05), transparent);
+  pointer-events: none;
+}
+
+.mid-century-modern-card:hover::before {
+  opacity: 1;
+}
+
+.mid-century-modern-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(232, 87, 42, 0.08);
+}
+
+.mid-century-modern-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.mid-century-modern-animate-in {
+  animation: mid-century-modern-fade-in 0.5s ease-out both;
+}

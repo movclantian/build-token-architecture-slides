@@ -1,0 +1,88 @@
+/* Neon Retro */
+/* Vaporwave 全局样式 */
+
+:root {
+  --vapor-pink: #ff71ce;
+  --vapor-cyan: #01cdfe;
+  --vapor-purple: #b967ff;
+  --vapor-green: #05ffa1;
+  --vapor-yellow: #fffb96;
+}
+
+/* 霓虹发光效果 */
+.vapor-glow {
+  text-shadow:
+    0 0 10px var(--vapor-pink),
+    0 0 20px var(--vapor-pink),
+    0 0 40px var(--vapor-cyan);
+}
+
+/* 网格背景 */
+.vapor-grid {
+  background-image:
+    linear-gradient(rgba(255, 113, 206, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 113, 206, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* 扫描线效果 */
+.vapor-scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+@keyframes vaporwave-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vaporwave-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.vaporwave-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(255, 113, 206, 0.08);
+}
+
+.vaporwave-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.vaporwave-animate-in {
+  animation: vaporwave-fade-in 0.5s ease-out both;
+}
+
+.vaporwave-focus { outline: 2px solid var(--vaporwave-primary, currentColor); outline-offset: 2px; }
+
+/* Responsive utilities */
+@media (prefers-reduced-motion: reduce) {
+  .vaporwave-animate-in {
+    animation: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .vaporwave-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+}
+
+/* Print styles */
+@media print {
+  .vaporwave-gradient,
+  .vaporwave-frosted {
+    background: none;
+    backdrop-filter: none;
+  }
+}

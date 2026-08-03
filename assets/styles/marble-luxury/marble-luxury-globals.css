@@ -1,0 +1,67 @@
+/* Marble Luxury */
+/* Marble Luxury Global Styles */
+
+:root {
+  --ml-onyx: #1a1a1a;
+  --ml-marble: #f8f6f3;
+  --ml-gold: #c9a96e;
+  --ml-taupe: #8a7968;
+  --ml-light: #e8e0d6;
+}
+
+/* Marble texture background */
+.ml-marble-bg {
+  background-color: var(--ml-marble);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(138, 121, 104, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(201, 169, 110, 0.02) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 80%, rgba(138, 121, 104, 0.03) 0%, transparent 45%);
+}
+
+/* Gold line separator */
+.ml-gold-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--ml-gold) 20%,
+    var(--ml-gold) 80%,
+    transparent 100%
+  );
+  opacity: 0.3;
+}
+
+/* Luxury text spacing */
+.ml-luxury-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+}
+
+/* Elegant hover underline */
+.ml-underline-hover {
+  position: relative;
+}
+.ml-underline-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--ml-gold);
+  transition: all 0.5s ease-in-out;
+  transform: translateX(-50%);
+}
+.ml-underline-hover:hover::after {
+  width: 100%;
+}
+
+/* Subtle marble card shadow */
+.ml-card-shadow {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.5s ease-in-out;
+}
+.ml-card-shadow:hover {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+}

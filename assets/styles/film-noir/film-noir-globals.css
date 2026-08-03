@@ -1,0 +1,76 @@
+/* Film Noir */
+/* Film Noir Global Styles */
+@layer base {
+  body {
+    @apply bg-[#0a0a0a] text-neutral-300 antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif italic;
+  }
+
+  ::selection {
+    @apply bg-neutral-300 text-neutral-950;
+  }
+}
+
+@keyframes noir-spotlight {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.1; }
+}
+
+@keyframes noir-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Film Noir Design Tokens */
+:root {
+  --film-noir-primary: #1a1a1a;
+  --film-noir-secondary: #f5f5f0;
+  --film-noir-accent: #c41e3a;
+  --film-noir-glow: rgba(26, 26, 26, 0.3);
+}
+
+.film-noir-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.film-noir-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.05), transparent);
+  pointer-events: none;
+}
+
+.film-noir-card:hover::before {
+  opacity: 1;
+}
+
+.film-noir-gradient {
+  background: linear-gradient(135deg, #1a1a1a, #c41e3a);
+}
+
+.film-noir-gradient-text {
+  background: linear-gradient(135deg, #1a1a1a, #c41e3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.film-noir-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(26, 26, 26, 0.08);
+}
+
+.film-noir-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.film-noir-animate-in {
+  animation: film-noir-fade-in 0.5s ease-out both;
+}

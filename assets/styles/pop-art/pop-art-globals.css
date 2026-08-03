@@ -1,0 +1,71 @@
+/* Pop Art */
+/* Pop Art Global Styles */
+@layer base {
+  body {
+    @apply bg-white text-black antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-black uppercase tracking-wider;
+  }
+
+  ::selection {
+    @apply bg-[#ffdd00] text-black;
+  }
+}
+
+/* Ben-Day dots pattern utility */
+.pop-art-dots {
+  background-image: radial-gradient(circle, #000 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+/* Pop Art Design Tokens */
+:root {
+  --pop-art-primary: #ffdd00;
+  --pop-art-secondary: #ff69b4;
+  --pop-art-accent: #00bfff;
+  --pop-art-glow: rgba(255, 221, 0, 0.3);
+}
+
+@keyframes pop-art-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop-art-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.pop-art-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.pop-art-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(255, 221, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.pop-art-card:hover::before {
+  opacity: 1;
+}
+
+.pop-art-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(255, 221, 0, 0.08);
+}
+
+.pop-art-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.pop-art-animate-in {
+  animation: pop-art-fade-in 0.5s ease-out both;
+}

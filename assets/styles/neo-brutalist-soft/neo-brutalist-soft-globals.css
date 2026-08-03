@@ -1,0 +1,86 @@
+/* Neo-Brutalist Soft */
+/* Neo-Brutalist Soft 全局样式 */
+:root {
+  --soft-pink: #f472b6;
+  --soft-green: #a3e635;
+  --soft-blue: #38bdf8;
+  --soft-yellow: #fbbf24;
+  --soft-bg: #f5f5f5;
+  --soft-text: #1a1a1a;
+  --soft-border: #1f2937;
+}
+
+body {
+  background: var(--soft-bg);
+  color: var(--soft-text);
+}
+
+/* 标题字体 - 粗体但非极黑 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* 正文字体 */
+body {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* 选中文字 - 柔和粉色 */
+::selection {
+  background: var(--soft-pink);
+  color: white;
+}
+@keyframes neo-brutalist-soft-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes neo-brutalist-soft-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.neo-brutalist-soft-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.neo-brutalist-soft-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.05), transparent);
+  pointer-events: none;
+}
+
+.neo-brutalist-soft-card:hover::before {
+  opacity: 1;
+}
+
+.neo-brutalist-soft-gradient {
+  background: linear-gradient(135deg, #1a1a1a, #f472b6);
+}
+
+.neo-brutalist-soft-gradient-text {
+  background: linear-gradient(135deg, #1a1a1a, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.neo-brutalist-soft-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(26, 26, 26, 0.08);
+}
+
+.neo-brutalist-soft-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.neo-brutalist-soft-animate-in {
+  animation: neo-brutalist-soft-fade-in 0.5s ease-out both;
+}

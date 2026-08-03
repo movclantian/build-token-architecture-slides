@@ -1,0 +1,71 @@
+/* Luxe Lookbook */
+/* Luxe Lookbook Global Styles */
+
+:root {
+  --ll-porcelain: #F7F5F1;
+  --ll-stone: #E8E3DB;
+  --ll-ink: #141210;
+  --ll-gold: #9A7B4F;
+  --ll-taupe: #6B6259;
+  --ll-hairline: rgba(20, 18, 16, 0.2);
+  --ll-serif: "Playfair Display", "Times New Roman", Georgia, serif;
+}
+
+/* Load the Didone display face from the CN mirror */
+@import url("https://fonts.loli.net/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&display=swap");
+
+.ll-display {
+  font-family: var(--ll-serif);
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+
+/* Oversized editorial title */
+.ll-hero-title {
+  font-family: var(--ll-serif);
+  font-size: clamp(3rem, 12vw, 8rem);
+  line-height: 0.92;
+}
+
+/* Airy uppercase label */
+.ll-label {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: var(--ll-gold);
+}
+
+/* Hairline rule */
+.ll-rule {
+  border: 0;
+  border-top: 1px solid var(--ll-hairline);
+}
+
+/* Full-bleed film cover */
+.ll-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Readability scrim over the film */
+.ll-scrim {
+  background: linear-gradient(to top, rgba(20,18,16,0.5), rgba(20,18,16,0) 55%, rgba(20,18,16,0.2));
+}
+
+/* Lookbook plate: slow reveal on hover, transform/opacity only */
+.ll-plate img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ll-plate:hover img,
+.ll-plate:focus-within img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ll-plate img { transition: none; }
+  .ll-plate:hover img,
+  .ll-plate:focus-within img { transform: none; }
+}

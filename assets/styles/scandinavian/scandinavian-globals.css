@@ -1,0 +1,62 @@
+/* Scandinavian Minimalism */
+/* Scandinavian Minimalism */
+:root {
+  --scandinavian-bg: #f5f0eb;
+  --scandinavian-text: #3d3d3d;
+  --scandinavian-muted: #a89279;
+  --scandinavian-accent: #5a7a6b;
+  --scandinavian-border: #d4cdc5;
+}
+@keyframes scandinavian-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scandinavian-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.scandinavian-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.scandinavian-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(61, 61, 61, 0.05), transparent);
+  pointer-events: none;
+}
+
+.scandinavian-card:hover::before {
+  opacity: 1;
+}
+
+.scandinavian-gradient {
+  background: linear-gradient(135deg, #3d3d3d, #5a7a6b);
+}
+
+.scandinavian-gradient-text {
+  background: linear-gradient(135deg, #3d3d3d, #5a7a6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.scandinavian-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(61, 61, 61, 0.08);
+}
+
+.scandinavian-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.scandinavian-animate-in {
+  animation: scandinavian-fade-in 0.5s ease-out both;
+}

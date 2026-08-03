@@ -1,0 +1,66 @@
+/* Data Dense */
+.data-dense-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.375rem;
+  font-size: 0.625rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+.data-dense-badge--success { background: #f0fdf4; color: #15803d; }
+.data-dense-badge--warning { background: #fffbeb; color: #a16207; }
+.data-dense-badge--error { background: #fef2f2; color: #b91c1c; }
+.data-dense-badge--info { background: #eff6ff; color: #1d4ed8; }
+@keyframes data-dense-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes data-dense-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.data-dense-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.data-dense-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
+  pointer-events: none;
+}
+
+.data-dense-card:hover::before {
+  opacity: 1;
+}
+
+.data-dense-gradient {
+  background: linear-gradient(135deg, #ffffff, #3b82f6);
+}
+
+.data-dense-gradient-text {
+  background: linear-gradient(135deg, #ffffff, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.data-dense-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.data-dense-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.data-dense-animate-in {
+  animation: data-dense-fade-in 0.5s ease-out both;
+}

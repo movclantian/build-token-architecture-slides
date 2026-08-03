@@ -1,0 +1,89 @@
+/* Victorian Botanical */
+/* Victorian Botanical 全局样式 */
+
+:root {
+  --vb-green: #2d4a2d;
+  --vb-cream: #faf5ef;
+  --vb-gold: #8b6914;
+  --vb-rose: #6b3a3a;
+  --vb-fern: #3d5c3d;
+}
+
+/* 羊皮纸背景纹理 */
+.vb-parchment {
+  background-color: var(--vb-cream);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(139, 105, 20, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(45, 74, 45, 0.03) 0%, transparent 50%);
+}
+
+/* 精细装饰线 */
+.vb-ornament-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--vb-gold) 20%,
+    var(--vb-gold) 80%,
+    transparent 100%
+  );
+  opacity: 0.4;
+}
+
+/* 标本标签风格 */
+.vb-specimen-label {
+  font-family: Georgia, "Times New Roman", serif;
+  border: 1px solid rgba(45, 74, 45, 0.2);
+  padding: 0.75rem 1rem;
+  background: var(--vb-cream);
+  font-style: italic;
+}
+
+/* 金色强调文字 */
+.vb-gold-text {
+  color: var(--vb-gold);
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.05em;
+}
+@keyframes victorian-botanical-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes victorian-botanical-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.victorian-botanical-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.victorian-botanical-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(45, 74, 45, 0.05), transparent);
+  pointer-events: none;
+}
+
+.victorian-botanical-card:hover::before {
+  opacity: 1;
+}
+
+.victorian-botanical-frosted {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(45, 74, 45, 0.08);
+}
+
+.victorian-botanical-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.victorian-botanical-animate-in {
+  animation: victorian-botanical-fade-in 0.5s ease-out both;
+}

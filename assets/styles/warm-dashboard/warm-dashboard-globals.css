@@ -1,0 +1,95 @@
+/* Warm Dashboard */
+/* Warm Dashboard 全局样式 */
+:root {
+  --warm-bg: #d4a088;
+  --warm-bg-light: #e0b8a4;
+  --warm-card: #faf8f5;
+  --warm-teal: #4a9d9a;
+  --warm-gold: #e8b86d;
+  --warm-coral: #c17767;
+  --warm-sage: #6b8e8e;
+}
+
+body {
+  background: var(--warm-bg);
+  color: #374151;
+}
+
+/* 卡片基础样式 */
+.warm-card {
+  background: var(--warm-card);
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* 侧边栏毛玻璃 */
+.warm-sidebar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* 数据高亮 */
+.warm-highlight {
+  color: var(--warm-teal);
+}
+
+.warm-highlight-negative {
+  color: var(--warm-coral);
+}
+
+/* 图表颜色 */
+.warm-chart-primary {
+  fill: var(--warm-gold);
+}
+
+.warm-chart-secondary {
+  fill: var(--warm-teal);
+}
+@keyframes warm-dashboard-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes warm-dashboard-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.warm-dashboard-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.warm-dashboard-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(135deg, rgba(212, 160, 136, 0.05), transparent);
+  pointer-events: none;
+}
+
+.warm-dashboard-card:hover::before {
+  opacity: 1;
+}
+
+.warm-dashboard-gradient {
+  background: linear-gradient(135deg, #d4a088, #4a9d9a);
+}
+
+.warm-dashboard-gradient-text {
+  background: linear-gradient(135deg, #d4a088, #4a9d9a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.warm-dashboard-accent-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.warm-dashboard-animate-in {
+  animation: warm-dashboard-fade-in 0.5s ease-out both;
+}

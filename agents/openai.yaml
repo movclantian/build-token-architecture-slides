@@ -1,0 +1,4 @@
+interface:
+  display_name: "Token 架构图生成器"
+  short_description: "读取项目或内置设计 Token，生成多样化可截图的中文架构原理页"
+  default_prompt: "使用 $build-token-architecture-slides 读取当前项目 Token 或内置风格包，结合多种构图形式生成中文架构原理 HTML 页面。"

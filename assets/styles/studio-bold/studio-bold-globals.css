@@ -1,0 +1,113 @@
+/* Creative Studio */
+.studio-bold-section-dark {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+}
+.studio-bold-section-light {
+  background-color: #F5F5F0;
+  color: #1A1A1A;
+}
+.studio-bold-section-darker {
+  background-color: #0D0D0D;
+  color: #FFFFFF;
+}
+.studio-bold-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #1A1A1A;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+.studio-bold-card {
+  background-color: #F5F5F0;
+  overflow: hidden;
+  transition: all 300ms ease;
+}
+.studio-bold-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+.studio-bold-card:hover .studio-bold-card-title {
+  color: #FF6B6B;
+}
+.studio-bold-card-arrow {
+  transition: transform 300ms ease;
+}
+.studio-bold-card:hover .studio-bold-card-arrow {
+  transform: translateX(4px);
+}
+.studio-bold-btn-primary {
+  background-color: #FF6B6B;
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.studio-bold-btn-primary:hover {
+  background-color: #E55A5A;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+.studio-bold-btn-outline {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  background: transparent;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.studio-bold-btn-outline:hover {
+  border-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.studio-bold-clients {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem 0;
+  opacity: 0.6;
+  filter: grayscale(1);
+  transition: all 300ms ease;
+}
+.studio-bold-clients:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+.studio-bold-testimonial {
+  max-width: 56rem;
+  margin: 0 auto;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #1A1A1A;
+  padding: 4rem 3rem;
+}
+@media (min-width: 768px) {
+  .studio-bold-testimonial {
+    font-size: 1.875rem;
+  }
+}
+.studio-bold-team-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+.studio-bold-nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  transition: color 200ms ease;
+  cursor: pointer;
+}
+.studio-bold-nav-link:hover {
+  color: #FF6B6B;
+}
