@@ -82,6 +82,7 @@ Reject and revise any slide when one of these is true:
 - arrows imply a sequence that the text does not support;
 - a footer or dark surface contains invisible text;
 - text wraps into neighboring elements or is clipped;
+- browser zoom changes but the slide size remains visually unchanged because viewport-fit logic rescales it back;
 - the design claims to use token files that do not affect rendered CSS;
 - the same layout is repeated despite different information structures.
 - three or more slides collapse into the same dominant composition when their information structures differ;

@@ -71,7 +71,8 @@ Treat the selected style package as both a token source and a visual grammar. Re
 
 - Render one slide at a time with hash-addressable page numbers.
 - Support arrow keys, Page Up, Page Down, Home, End, and click navigation without visible instruction text.
-- Scale the active slide to the viewport without clipping.
+- Fit the active slide to the viewport at the default browser zoom without clipping.
+- Preserve native browser zoom: do not recompute `transform: scale(...)` on every CSS viewport change in a way that cancels `Ctrl+wheel` zoom, do not call `preventDefault()` for `Ctrl+wheel`, and allow the slide to overflow or scroll after zoom instead of shrinking it back to the viewport.
 - Keep print rules available, but optimize first for direct screenshot capture.
 - Keep the final HTML self-contained or use output-relative compiled assets; never leave references to the external source directory or the skill's absolute installation path.
 - Do not place Tailwind utility classes in final HTML unless the output includes the build step that resolves them.
@@ -95,6 +96,7 @@ Fix every reported error before delivery. Then verify:
 - no content group is scattered by `space-between`, equal-height rows, or card-level growth;
 - black or colored surfaces retain readable foreground text;
 - titles, arrows, labels, cards, footers, and page numbers do not overlap or clip;
+- changing browser zoom visibly changes the slide scale instead of being canceled by viewport-fit logic;
 - all requested token sources materially affect the rendered result;
 - slide count, orientation count, page labels, and document placeholders agree.
 
