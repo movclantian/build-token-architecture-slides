@@ -9,7 +9,7 @@ Create architecture visuals from real project facts while treating the supplied 
 
 ## Built-in style package
 
-Use the bundled themes under [assets/styles](assets/styles). Read [assets/styles/styles-overview.md](assets/styles/styles-overview.md) to select a theme. Each theme folder is named by a stable slug and contains:
+Use the bundled themes under [assets](assets). Read [assets/styles-overview.md](assets/styles-overview.md) to select a theme. Each theme folder is named by a stable slug and contains:
 
 - `{slug}-globals.css`
 - `{slug}-variables.css`
