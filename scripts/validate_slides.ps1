@@ -33,6 +33,9 @@ if ($slides.Count -eq 0) { $errors.Add('未找到 class="slide" 的页面') }
 
 $visibleText = Get-VisibleText $raw
 if ($visibleText.Contains('/')) { $errors.Add('可见文案包含斜杠，请改用中文标点或关系词') }
+if ($visibleText -match '设计语言\s*[:：]|设计风格\s*[:：]|Tailwind\s*Preset|Neo-Brutalist\s*硬核') {
+  $errors.Add('可见文案包含了设计风格自身的元信息说明（如“设计语言：...”），请聚焦于业务与架构内容本身，不要把排版风格名称打印在幻灯片上')
+}
 
 if ($raw -match '(?is)\.diagram\s*\{[^}]*justify-content\s*:\s*space-between') {
   $errors.Add('diagram 使用 space-between，会把内容组分散到大面积空白中')
@@ -51,6 +54,9 @@ for ($index = 0; $index -lt $slides.Count; $index++) {
   $slide = $slides[$index].Value
   $titleMatch = [regex]::Match($slide, 'data-title="([^"]+)"')
   $title = if ($titleMatch.Success) { $titleMatch.Groups[1].Value } else { "第 $($index + 1) 页" }
+  if ($title -match '^(\d+\.)+\d*') {
+    $errors.Add("$title 标题包含机械章节编号（如 1.1、1.1.1），请改为精炼的概念或架构主题")
+  }
   $text = Get-VisibleText $slide
   if ($text.Length -lt $MinimumSlideText) {
     $errors.Add("$title 可见文本仅 $($text.Length) 字符，内容过于稀疏")

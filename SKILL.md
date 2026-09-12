@@ -66,13 +66,18 @@ Treat the selected style package as both a token source and a visual grammar. Re
 - Do not use a visible slash as a separator. Use `、`, `与`, `·`, `至`, or `→` according to meaning.
 - Do not use long English kickers or English-only card titles.
 - Use first-person plural when the surrounding submission is written from the team's perspective.
+- **No mechanical section numbers**: Do not carry over mechanical document numbering (such as `1.1`, `1.1.1`, `2.3.4`) into slide titles, kickers, or card headers. Extract and present core conceptual, thematic, or narrative headings instead.
+- **No theme self-description meta-labels**: Never display the theme or design style name (e.g., `设计语言：Neo-Brutalist`, `设计风格：极简主义`, `Tailwind Preset`) as text content on user-facing slides. Apply the visual grammar to present the user's domain content, but do not talk about the design style itself.
+- **Chinese typography & first-line indentation**: When presenting Chinese analytical paragraphs, problem descriptions, and narrative explanations, use standard 2-character first-line indentation (`text-indent: 2em;`) with justified alignment (`text-align: justify;`) and comfortable line-height (`1.5` to `1.65`).
+- **Domain-appropriate terminology**: Avoid misleading computer/debugger jargon like "断点" (breakpoint) when describing business, pedagogical, or system bottlenecks. Use precise domain terms such as "痛点", "困境", "壁垒", "瓶颈", "挑战".
 
 ## HTML behavior
 
 - Render one slide at a time with hash-addressable page numbers.
 - Support arrow keys, Page Up, Page Down, Home, End, and click navigation without visible instruction text.
-- Fit the active slide to the viewport at the default browser zoom without clipping.
-- Preserve native browser zoom: do not recompute `transform: scale(...)` on every CSS viewport change in a way that cancels `Ctrl+wheel` zoom, do not call `preventDefault()` for `Ctrl+wheel`, and allow the slide to overflow or scroll after zoom instead of shrinking it back to the viewport.
+- **Fluid responsive layout over rigid canvas**: Avoid hardcoded pixel letterboxing (e.g., `width: 1600px; height: 900px; position: absolute; overflow: hidden;` with artificial black borders on body). Construct the slide as a fluid, responsive document container (`max-width: 1540px / 1600px; width: 100%; margin: 0 auto; height: auto;`).
+- **Content-driven height & native browser zoom**: Let container height be content-driven (`height: auto; min-height: fit-content;`). Allow browser zoom (`Ctrl + +` / `Ctrl + -`) to reflow and scale typography and cards naturally, without shrinking, clipping, or letterbox-scaling the entire canvas like an image.
+- **Responsive reflow grid**: Use responsive CSS grids or media queries so columns naturally adapt and wrap when zoomed in or on narrower displays, guaranteeing zero clipping and zero overflow.
 - Keep print rules available, but optimize first for direct screenshot capture.
 - Keep the final HTML self-contained or use output-relative compiled assets; never leave references to the external source directory or the skill's absolute installation path.
 - Do not place Tailwind utility classes in final HTML unless the output includes the build step that resolves them.

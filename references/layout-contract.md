@@ -69,6 +69,10 @@ For decks with three or more slides, use at least three composition families and
 - Prefer `知识库与联网检索` over abbreviations in presentation text.
 - Keep framework names only when they explain an actual architectural boundary.
 - Replace visible slash separators with Chinese punctuation or relationship words.
+- Do not use mechanical document section numbers (such as `1.1`, `1.1.1`, `2.3`) in titles, badges, or card labels; extract semantic, conceptual headings.
+- Never output theme or design-language self-descriptions (e.g., `设计语言：Neo-Brutalist`, `Tailwind Preset`) as text content on user-facing slides.
+- Use standard Chinese first-line paragraph indentation (`text-indent: 2em;`) with justified alignment (`text-align: justify;`) for descriptive and analytical text.
+- Use domain-appropriate terminology; avoid misleading jargon (e.g., avoid "断点" when referring to pain points or dilemmas).
 
 ## Rejection conditions
 
@@ -83,6 +87,10 @@ Reject and revise any slide when one of these is true:
 - a footer or dark surface contains invisible text;
 - text wraps into neighboring elements or is clipped;
 - browser zoom changes but the slide size remains visually unchanged because viewport-fit logic rescales it back;
+- the slide uses rigid pixel letterbox scaling that treats the page as an inflexible static box rather than supporting fluid responsive reflow on browser zoom;
+- the slide visibly displays theme or design-style self-descriptions (e.g., `设计语言：Neo-Brutalist`);
+- titles, kickers, or card headers contain mechanical section numbers like `1.1` or `1.1.1`;
+- Chinese descriptive paragraphs lack standard 2-character first-line indentation (`text-indent: 2em;`);
 - the design claims to use token files that do not affect rendered CSS;
 - the same layout is repeated despite different information structures.
 - three or more slides collapse into the same dominant composition when their information structures differ;
