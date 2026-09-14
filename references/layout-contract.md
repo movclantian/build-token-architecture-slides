@@ -28,6 +28,7 @@ Choose the structure from the relationship:
 | Relationship | Preferred composition |
 | --- | --- |
 | Ordered execution | Horizontal or vertical flow with arrows |
+| Multi-stage lifecycle or closed loop (4-8 steps) | S-Flow serpentine multi-row pipeline with smooth Bézier curves |
 | Parallel responsibilities | Aligned lanes or compact columns |
 | Layers and boundaries | Stacked bands with explicit communication edges |
 | State changes | State sequence with triggers and outcomes |
@@ -41,13 +42,19 @@ Choose the structure from the relationship:
 
 Avoid a uniform card grid when the underlying relationship is sequential, hierarchical, or cyclical.
 
+For multi-stage workflows or closed loops (4 to 8 stages), use an S-Flow serpentine layout: Row 1 Left-to-Right, Row 2 Right-to-Left, Row 3 Left-to-Right. Inter-row connectors MUST use smooth, rounded cubic or quadratic Bézier curves (`<path d="..." fill="none" />`) rather than rigid 90-degree polygonal corners.
+
 For decks with three or more slides, use at least three composition families and avoid repeating the same dominant structure on adjacent slides. Keep the variation tied to the information structure and the selected theme's visual grammar rather than adding decoration.
 
-## Aspect ratio
+## Aspect ratio & screenshot legibility
 
 - Use 1600 by 900 for broad flows, layered systems, comparisons, and multi-lane execution.
 - Use 900 by 1200 for long pipelines, state sequences, ingestion flows, and vertically ordered logic.
 - Keep the title region compact and reserve most area for the diagram.
+- **Word-ready screenshot legibility**: Slides are primarily captured as screenshots for reports and proposals. Keep typography large (body 14px-18px, titles 18px-24px) by restricting card copy to essential architectural logic and key states, leaving narrative elaboration for document text.
+- **Compress container padding**: Eliminate redundant nested padding in card containers housing SVG diagrams or canvas grids (use `padding: 4px - 10px` on SVG wrappers) so the visual diagram maximizes its canvas footprint without being shrunk by excessive outer whitespace.
+- **Omit low-level code citation noise**: Do not print line numbers, test case file paths, or trivial implementation paths on cards unless the slide is explicitly a code inventory.
+- **No interactive widget bloat**: Do not place floating zoom controls, custom scale buttons, or extraneous UI widgets on the presentation canvas. Native browser zoom handles scaling cleanly.
 - Keep all essential text readable after the page is pasted into Word.
 - Do not shrink text to compensate for excess content. Split the slide when necessary.
 
@@ -94,4 +101,10 @@ Reject and revise any slide when one of these is true:
 - the design claims to use token files that do not affect rendered CSS;
 - the same layout is repeated despite different information structures.
 - three or more slides collapse into the same dominant composition when their information structures differ;
+- a 4+ step end-to-end pipeline is squished into an unreadable single horizontal row;
+- sharp 90-degree polygonal elbows are used between pipeline rows instead of smooth, rounded Bézier curves;
+- an SVG diagram or canvas is severely shrunken due to excessive nested card paddings;
+- cards are stuffed with narrative walls of text that force typography below screenshot legibility thresholds;
+- cards are cluttered with low-level source-code line numbers or file citation lists that crowd architectural diagrams;
+- non-presentation interactive UI controls (such as custom zoom buttons or floating toolbars) are rendered on the slide;
 - style changes are limited to colors while typography, surfaces, borders, shadows, and theme-specific visual grammar are ignored.

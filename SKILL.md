@@ -24,6 +24,8 @@ Resolve a user-named theme to its exact folder and read all five files before im
 Treat the selected style package as both a token source and a visual grammar. Reuse its typography hierarchy, border and radius language, shadow character, surface treatment, accent behavior, and theme-specific selectors or effects. Do not reduce a theme to a background color and a palette.
 
 - Choose the dominant form from the architectural relationship: horizontal or vertical flow, responsibility lanes, stacked layers, state transitions, timeline, feedback loop, comparison, dense table or matrix, hub-and-spoke, or one-mechanism annotated diagram.
+- **S-Flow serpentine multi-row pipeline**: For long sequential workflows or closed-loop pipelines (4 to 8 stages, such as end-to-end lifecycle loops), avoid forcing all steps into a single ultra-wide horizontal row that becomes unreadable when screenshotted. Break the pipeline into a 2-row or 3-row serpentine flow (Row 1 Left-to-Right, Row 2 Right-to-Left, Row 3 Left-to-Right).
+- **Smooth Bézier curve connectors**: Inter-row transition paths in an S-Flow MUST use smooth, rounded cubic or quadratic Bézier curves (`<path d="M... C... / Q..." fill="none" stroke="..." />` with generous radius) rather than rigid 90-degree polygonal corners. The transition must convey a continuous, natural cyclical or evolutionary momentum.
 - For decks with three or more slides, use at least three composition families, avoid repeating the same dominant structure on adjacent slides, and do not turn every page into an identical card grid.
 - Vary the title placement, alignment, aspect ratio, visual density, grouping, and dominant visual when the content supports it. Use the theme's visual language to make the variation coherent.
 - Keep every variation evidence-grounded. Do not add ornamental nodes, fake states, decorative metrics, or visual motifs that imply architecture facts that do not exist.
@@ -31,7 +33,7 @@ Treat the selected style package as both a token source and a visual grammar. Re
 ## Required workflow
 
 1. Resolve the style source before editing. Read every style, token, theme, preset, and metadata file named by the user; for a bundled theme, read the catalog and every file in the selected theme folder.
-2. Read the relevant source code, document, or architecture evidence. Do not invent modules, algorithms, states, or integrations.
+2. Read the relevant source code, document, or architecture evidence thoroughly before drafting. Ground all entities in actual repository codebase definitions (classes, state machines, workflow steps, database schemas) rather than high-level conversational summaries. Do not invent modules, algorithms, states, or integrations.
 3. Read [references/layout-contract.md](references/layout-contract.md) completely before composing or revising slides.
 4. Build a slide inventory before writing HTML. Assign one architectural question, one main relationship, one composition family, and one conclusion to each slide.
 5. Choose landscape or portrait per slide from content shape. Do not force the whole deck into one aspect ratio.
@@ -57,6 +59,9 @@ Treat the selected style package as both a token source and a visual grammar. Re
 - Prefer flows, lanes, matrices, staged pipelines, boundaries, and state transitions over decorative card collections.
 - Use exact implementation facts but translate internal identifiers into readable architecture language.
 - Include a concise conclusion on every slide that states why the mechanism matters.
+- **Card copy brevity vs. typography scale**: Keep card copy concise and high-signal. Do not dump lengthy narrative paragraphs into architecture cards; the accompanying proposal or report carries the narrative text, while the visual artifact provides structural clarity and mental models. Restricting card copy allows typography to remain comfortably large (e.g. 14px-18px body, 18px-24px subheads) and crisp when screenshotted into Word or PDF documents.
+- **No low-level code citation noise**: Do not crowd architecture cards with code line numbers or raw source paths (e.g., `src/foo/bar.ts:L123-145`, unit test file paths) unless the slide is explicitly a file-tree or repo inventory diagram. Focus on architecture roles, contracts, and mechanisms.
+- **Visual-document synergy**: Treat the visual slide and the document text as complementary partners. The slide provides the structural mental model, flow topology, and key states; the report text provides in-depth rationale, user value, and empirical verification.
 
 ## Language rules
 
@@ -78,6 +83,8 @@ Treat the selected style package as both a token source and a visual grammar. Re
 - **Fluid responsive layout over rigid canvas**: Avoid hardcoded pixel letterboxing (e.g., `width: 1600px; height: 900px; position: absolute; overflow: hidden;` with artificial black borders on body). Construct the slide as a fluid, responsive document container (`max-width: 1540px / 1600px; width: 100%; margin: 0 auto; height: auto;`).
 - **Content-driven height & native browser zoom**: Let container height be content-driven (`height: auto; min-height: fit-content;`). Allow browser zoom (`Ctrl + +` / `Ctrl + -`) to reflow and scale typography and cards naturally, without shrinking, clipping, or letterbox-scaling the entire canvas like an image.
 - **Responsive reflow grid**: Use responsive CSS grids or media queries so columns naturally adapt and wrap when zoomed in or on narrower displays, guaranteeing zero clipping and zero overflow.
+- **Zero redundant container padding for SVG and diagrams**: Minimize nested padding inside cards housing SVG diagrams, canvas regions, or matrix tables (e.g. use `padding: 4px - 10px` on SVG wrappers). Maximize the graphic's footprint so diagrams are not rendered tiny within unnecessarily deep card borders.
+- **No interactive widget bloat**: Do not inject floating zoom buttons, custom scale toolbars, or extraneous interactive controls onto the slide canvas. Slides must remain pure, clean, and distraction-free for static screenshotting. Native browser zooming handles scaling without UI interference.
 - Keep print rules available, but optimize first for direct screenshot capture.
 - Keep the final HTML self-contained or use output-relative compiled assets; never leave references to the external source directory or the skill's absolute installation path.
 - Do not place Tailwind utility classes in final HTML unless the output includes the build step that resolves them.

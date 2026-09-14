@@ -36,6 +36,9 @@ if ($visibleText.Contains('/')) { $errors.Add('可见文案包含斜杠，请改
 if ($visibleText -match '设计语言\s*[:：]|设计风格\s*[:：]|Tailwind\s*Preset|Neo-Brutalist\s*硬核') {
   $errors.Add('可见文案包含了设计风格自身的元信息说明（如“设计语言：...”），请聚焦于业务与架构内容本身，不要把排版风格名称打印在幻灯片上')
 }
+if ($raw -match '(?is)<button\b[^>]*(?:id|class)=["''][^"'']*(?:zoom|scale)[^"'']*["''][^>]*>') {
+  $errors.Add('页面包含非演示性的缩放/比例交互控件，请移除临时交互插件，保持截图版面纯粹，依靠浏览器原生缩放')
+}
 
 if ($raw -match '(?is)\.diagram\s*\{[^}]*justify-content\s*:\s*space-between') {
   $errors.Add('diagram 使用 space-between，会把内容组分散到大面积空白中')
