@@ -21,30 +21,107 @@
 - In split layouts, center the two column groups vertically and keep each column internally packed.
 - Keep the footer at the slide edge; do not use the content cards to fill the distance to it.
 
-## Composition selection
+## 18 大核心布局范式 (18 Layout Archetypes)
 
-Choose the structure from the relationship:
+在构建架构图、演示页与技术文档可视化时，从以下 18 种标准布局范式中选择最契合信息关系与表达目标的构图：
 
-| Relationship | Preferred composition |
-| --- | --- |
-| Ordered execution | Horizontal or vertical flow with arrows |
-| Multi-stage lifecycle or closed loop (4-8 steps) | S-Flow serpentine multi-row pipeline with smooth Bézier curves |
-| Parallel responsibilities | Aligned lanes or compact columns |
-| Layers and boundaries | Stacked bands with explicit communication edges |
-| State changes | State sequence with triggers and outcomes |
-| Alternatives | Symmetric comparison with shared criteria |
-| Many exact mappings | Dense table or matrix |
-| Feedback loop | Main flow plus a clearly labeled return path |
-| Mixed fixed and dynamic systems | Two packed groups with a shared foundation |
-| Time-ordered milestones | Timeline or numbered progression |
-| Central owner with bounded dependencies | Hub-and-spoke with labeled edges |
-| One mechanism with supporting evidence | Annotated diagram with callouts |
+1. **便当盒布局 (Bento Grid)**
+   - **视觉特征**：日式便当盒式的不规则网格（CSS Grid `grid-template-areas` 或显式 `col-span`、`row-span`），通过大小不一的卡片组合创造高信息密度的模块化视觉层次。
+   - **适用场景**：核心系统全景概览、多模块能力矩阵、全能平台特性大图、多指标综合仪表盘。
+   - **截图准则**：主卡片与次级卡片字号建立严格梯度，避免小卡片内部文字过载。
 
-Avoid a uniform card grid when the underlying relationship is sequential, hierarchical, or cyclical.
+2. **瀑布流布局 (Masonry Flow)**
+   - **视觉特征**：不等高卡片流式纵向交错拼合（CSS `columns` 或 `grid-template-rows: masonry`），通过错落高度实现自然流动的视觉节奏。
+   - **适用场景**：多模态资源中心预览、异构案例展示、非对称评测证据卡片、探索性创意集合。
+   - **截图准则**：列宽保持一致，卡片内部紧凑，避免末尾列大面积悬空造成重心失衡。
 
-For multi-stage workflows or closed loops (4 to 8 stages), use an S-Flow serpentine layout: Row 1 Left-to-Right, Row 2 Right-to-Left, Row 3 Left-to-Right. Inter-row connectors MUST use smooth, rounded cubic or quadratic Bézier curves (`<path d="..." fill="none" />`) rather than rigid 90-degree polygonal corners.
+3. **分屏布局 (Split Screen)**
+   - **视觉特征**：左右对称（50:50）或非对称（60:40）双栏对照，通过空间对立与平衡创造强烈的视觉张力。
+   - **适用场景**：破局对比（现实痛点 vs 创新破局）、理论推导 vs 工程实现对照、输入意图 vs 产物交付映射。
+   - **截图准则**：左右两栏的内容基线与总高度协同对齐，文本高度相当，避免单侧拖沓。
 
-For decks with three or more slides, use at least three composition families and avoid repeating the same dominant structure on adjacent slides. Keep the variation tied to the information structure and the selected theme's visual grammar rather than adding decoration.
+4. **全屏滚动布局 (Full Page Scroll)**
+   - **视觉特征**：单屏充满标准视口（16:9 或黄金比例），无外部滚动条，聚焦独立完整的场景与叙事切片。
+   - **适用场景**：章节转折过渡页、宏观愿景与使命陈述、单机制深度沉浸解析、独立答辩汇报页。
+   - **截图准则**：确保整页核心元素位于标准安全边界内，外围保留适度呼吸感，零内容裁剪。
+
+5. **垂直时间线布局 (Vertical Timeline)**
+   - **视觉特征**：垂直基准轴线贯穿，时间节点或工序节点沿轴线左右交错或单侧依附，串联有序递进。
+   - **适用场景**：项目研发演进历程、自适应学习路径推进节点、版本历史迭代、长周期工序时序。
+   - **截图准则**：轴线与节点圆环居中垂直对齐，节点标签间距均匀，时间线不中断。
+
+6. **卡片堆叠布局 (Card Stack)**
+   - **视觉特征**：卡片前后重叠的立体布局，通过 Z 轴层叠、微量 X/Y 偏移与阴影创造物理深度感与景深。
+   - **适用场景**：多层纵深防御与安全策略架构、分层协议栈、历史版本快照回退栈、多任务并发排队。
+   - **截图准则**：底层卡片显露特征性标签、状态点或标题边缘，顶层主卡片内容完整展开。
+
+7. **固定侧边栏布局 (Fixed Sidebar)**
+   - **视觉特征**：左侧固定导航栏、目录树或上下文元信息，右侧为主工作区、流程画布或核心架构视窗。
+   - **适用场景**：系统配置控制台架构、知识库目录管理、工作区实操总控体系、复杂工具调用总控。
+   - **截图准则**：侧边栏宽度占比控制在 20% 至 25%，为主内容区保留主导视野。
+
+8. **杂志网格布局 (Magazine Grid)**
+   - **视觉特征**：借鉴印刷杂志的多栏排版，主大图或核心卡片跨栏破格，首字下沉与引言穿插，节奏丰富。
+   - **适用场景**：学术背景与政策依据解读、重大行业痛点深度剖析、权威实验数据长篇图文解读。
+   - **截图准则**：严格双栏或三栏对齐，结合首字下沉与段落缩进（2em），展现典雅出版物质感。
+
+9. **全屏英雄区布局 (Fullscreen Hero)**
+   - **视觉特征**：以特大号主标题、精炼定位标语、居中核心架构图或拓扑枢纽为主导，抓住第一视觉焦点。
+   - **适用场景**：方案申报封面与首屏、平台核心杀手锏功能发布、标志性技术突破宣发。
+   - **截图准则**：主标、副标与系统定位层次鲜明，四周留白舒适，避免琐碎杂乱小元素干扰。
+
+10. **F型布局 (F-Pattern Layout)**
+    - **视觉特征**：基于眼动追踪的 F 型阅读动线（顶部水平宽幅扫描、左侧纵向探查、中段次级水平扫描）。
+    - **适用场景**：内容密集型技术规格书、多智能体协议接口清单、系统配置审计项、分步排障说明。
+    - **截图准则**：顶部横置全局结论，左侧加粗状态或键名，右侧陈列详细参数与解释。
+
+11. **Z型布局 (Z-Pattern Layout)**
+    - **视觉特征**：基于眼动追踪的 Z 字折线（左上起点 -> 右上副标 -> 斜穿左下核心机制 -> 右下落地行动）。
+    - **适用场景**：着陆页架构、商业模式与推广路径、三大核心破局点串联说明、极简信息展示。
+    - **截图准则**：在四个关键转折点锚定高对比度视觉卡片或图标，视线引导连贯顺畅。
+
+12. **圣杯布局 (Holy Grail Layout)**
+    - **视觉特征**：经典三栏式结构：顶部页眉 + 三列内容（左侧导航/先修、中间主架构画布、右侧属性监控） + 底部页脚。
+    - **适用场景**：工作区与代码实操体系、IDE 研发工作台架构、知识库三位一体交互范式。
+    - **截图准则**：中间主列宽度占比大于 50%，两侧辅助栏严整收敛，形成坚固对称秩序。
+
+13. **仪表盘布局 (Dashboard Layout)**
+    - **视觉特征**：数据驱动的模块化监控面板，包含顶栏 KPI 指标大字卡、多折线/饼状图表区、拓扑图与最新事件流。
+    - **适用场景**：多智能体运行状态看板、学生八维成长画像监控、模型调用开销与吞吐量评测。
+    - **截图准则**：关键指标数字特大化（28px 至 36px），卡片边界分明，信息饱和度高。
+
+14. **非对称网格 (Asymmetric Grid)**
+    - **视觉特征**：打破传统对称等宽网格，通过不规则的列宽比例（如 7:3、5:3:4）或错位重叠制造视觉张力。
+    - **适用场景**：重点突出颠覆性创新模块（大面积呈现核心技术，侧栏收纳支撑技术）、差异化竞品降维对比。
+    - **截图准则**：不规则中保持视觉总重量平衡，避免画面失衡或偏坠。
+
+15. **视差滚动 (Parallax Sections)**
+    - **视觉特征**：前景卡片与背景网格、渐变光晕以不同层级深度展开，制造多层次物理景深感。
+    - **适用场景**：底层基础设施到上层应用的层级穿透、技术演进的三重境界、空间分层系统拆解。
+    - **截图准则**：静态截图中通过阴影和半透明材质展现代表性截面，前景高亮、背景收敛。
+
+16. **滚动叙事 (Scrollytelling)**
+    - **视觉特征**：Sticky 核心画布钉在视口中央，文字步骤滑动触发画布状态演化（连线点亮、节点变色、数据变形）。
+    - **适用场景**：多智能体复杂时序调度推演、端到端学习闭环逐步推演、数据流生命周期分步揭示。
+    - **截图准则**：在静态幻灯片中解构为“分阶段状态快照组（阶段 1 -> 阶段 2 -> 阶段 3）”连续呈现。
+
+17. **视差杂志 (Parallax Editorial)**
+    - **视觉特征**：暖纸底色，sticky 图文交织，章节编号与优雅的首字下沉，把长内容读成有节奏的翻页。
+    - **适用场景**：教育哲学理念、人机协同育人理论基石、重大科研成果的学术化叙事。
+    - **截图准则**：保留高质量文字排版呼吸感，文字两端对齐，图注精准细致。
+
+18. **横滚画廊 (Horizontal Gallery)**
+    - **视觉特征**：白盒美术馆展线式的横向线性排布，宽阔留白，细边框大图，编号与极细图注还原策展语言。
+    - **适用场景**：七大多模态学习资源展墙、UI/交互原型演进系列展、学生优秀创新成果画廊。
+    - **截图准则**：单卡片横向比例开阔，图文排版严密还原策展级秩序。
+
+### S-Flow 蛇形折返流特化（S-Flow Serpentine Extension）
+对于多阶段工作流或端到端闭环演进（4 至 8 阶段）：
+- 强制采用 S-Flow 蛇形折返布局：Row 1 从左至右，Row 2 从右至左，Row 3 从左至右；
+- 行与行之间的过渡转折**严禁采用 90 度死板折线**，必须使用圆润平滑的三次或二次贝塞尔平滑曲线（`<path d="M... C... / Q..." fill="none" />`），赋予闭环系统自然流动的工程美感。
+
+### 多页幻灯片构图多样性契约
+对于包含三页或以上的幻灯片组，必须在上述 18 种构图范式中选择至少三种不同的构图家族，严禁相邻页面重复相同的主导结构，严禁整套幻灯片退化为单调乏味的同构卡片阵列。
 
 ## Aspect ratio & screenshot legibility
 

@@ -23,7 +23,25 @@ Resolve a user-named theme to its exact folder and read all five files before im
 
 Treat the selected style package as both a token source and a visual grammar. Reuse its typography hierarchy, border and radius language, shadow character, surface treatment, accent behavior, and theme-specific selectors or effects. Do not reduce a theme to a background color and a palette.
 
-- Choose the dominant form from the architectural relationship: horizontal or vertical flow, responsibility lanes, stacked layers, state transitions, timeline, feedback loop, comparison, dense table or matrix, hub-and-spoke, or one-mechanism annotated diagram.
+- **18 大核心布局范式 (18 Layout Archetypes)**: Choose the dominant layout structure from the 18 standard archetypes in [references/layout-contract.md](references/layout-contract.md):
+  1. **Bento Grid (便当盒)**: High-density modular overviews, multi-capability matrices, flagship feature overviews.
+  2. **Masonry Flow (瀑布流)**: Heterogeneous multi-modal assets, variable-height evidence items, resource galleries.
+  3. **Split Screen (分屏)**: 50:50 or 60:40 dual-paradigm comparisons (pain points vs solutions, theory vs engineering).
+  4. **Full Page Scroll (全屏滚动)**: Chapter openers, monumental vision statements, self-contained mechanism spotlights.
+  5. **Vertical Timeline (垂直时间线)**: Milestone progressions, historical evolution, linear phase advances.
+  6. **Card Stack (卡片堆叠)**: Multi-layer defense and security tiers, protocol stacks, LIFO state snapshots.
+  7. **Fixed Sidebar (固定侧边栏)**: Workspace consoles, knowledge-base file trees, administrative dashboards.
+  8. **Magazine Grid (杂志网格)**: Academic context, policy or pedagogical rationale, deep-dive analytical exposés.
+  9. **Fullscreen Hero (全屏英雄区)**: Project covers, flagship mechanism announcements, high-impact focal points.
+  10. **F-Pattern (F型布局)**: Text-dense technical specs, agent tool schemas, step-by-step troubleshooting protocols.
+  11. **Z-Pattern (Z型布局)**: Landing slides, value-proposition flows, commercialization and outreach routes.
+  12. **Holy Grail (圣杯布局)**: 3-column workspaces, IDE execution views, triadic interactive systems.
+  13. **Dashboard (仪表盘)**: Multi-agent health status, KPI metric cards, student profile radar and analytics.
+  14. **Asymmetric Grid (非对称网格)**: Highlighting breakthrough core engines against secondary support modules.
+  15. **Parallax Sections (视差滚动)**: Layered infrastructure penetration, deep technical hierarchy snapshots.
+  16. **Scrollytelling (滚动叙事)**: Step-by-step mechanism execution snapshots, staged state machine state changes.
+  17. **Parallax Editorial (视差杂志)**: Academic philosophy, human-in-the-loop pedagogical rationale, book-like layouts.
+  18. **Horizontal Gallery (横滚画廊)**: Multi-modal resource showcases, prototype exhibition walls, curated galleries.
 - **S-Flow serpentine multi-row pipeline**: For long sequential workflows or closed-loop pipelines (4 to 8 stages, such as end-to-end lifecycle loops), avoid forcing all steps into a single ultra-wide horizontal row that becomes unreadable when screenshotted. Break the pipeline into a 2-row or 3-row serpentine flow (Row 1 Left-to-Right, Row 2 Right-to-Left, Row 3 Left-to-Right).
 - **Smooth Bézier curve connectors**: Inter-row transition paths in an S-Flow MUST use smooth, rounded cubic or quadratic Bézier curves (`<path d="M... C... / Q..." fill="none" stroke="..." />` with generous radius) rather than rigid 90-degree polygonal corners. The transition must convey a continuous, natural cyclical or evolutionary momentum.
 - For decks with three or more slides, use at least three composition families, avoid repeating the same dominant structure on adjacent slides, and do not turn every page into an identical card grid.
