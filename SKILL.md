@@ -94,6 +94,17 @@ Treat the selected style package as both a token source and a visual grammar. Re
 - **Chinese typography & first-line indentation**: When presenting Chinese analytical paragraphs, problem descriptions, and narrative explanations, use standard 2-character first-line indentation (`text-indent: 2em;`) with justified alignment (`text-align: justify;`) and comfortable line-height (`1.5` to `1.65`).
 - **Domain-appropriate terminology**: Avoid misleading computer/debugger jargon like "断点" (breakpoint) when describing business, pedagogical, or system bottlenecks. Use precise domain terms such as "痛点", "困境", "壁垒", "瓶颈", "挑战".
 
+## First-class SVG vector architecture (SVG 矢量架构准则)
+
+Proactively leverage inline SVG as a primary visual vehicle for architecture diagrams, flows, state machines, and topological connections:
+
+- **Vector-first for screenshot clarity**: Raster images and pure CSS border tricks degrade or misalign when screenshotted and pasted into Word or PPT. Inline SVG preserves infinite crispness, anti-aliased curves, and exact sub-pixel alignment at any display scaling or zoom.
+- **Topological connectors over CSS borders**: Use SVG `<path>` with cubic (`C`) or quadratic (`Q`) Bézier curves for all inter-node arrows, S-Flow serpentine transitions, feedback loops, and branch or merge junctions.
+- **Semantic markers and endpoints**: Use `<defs><marker>` to define theme-aware arrowheads (`orient="auto"`, `markerUnits="userSpaceOnUse"` or `strokeWidth`), directional dots, and pulse indicators that match token colors (`fill="var(--primary)"`, `stroke="var(--border)"`).
+- **Rich architectural nodes**: Use SVG shapes (`<rect rx="..." ry="...">`, `<circle>`, `<polygon>`, `<g>`) with gradient fills (`<linearGradient>`), subtle borders, and nested `<text>` / `<foreignObject>` for high-density components (e.g. state nodes, decision diamonds, busbars, capsules).
+- **Responsive viewBox containment**: Every SVG diagram MUST declare a tight `viewBox="0 0 W H"`, `width="100%"`, `height="auto"`, and `preserveAspectRatio="xMidYMid meet"`. The viewBox bounds must hug the visual elements tightly with zero excess outer whitespace, preventing graphics from appearing small inside cards.
+- **Token-bound styling**: Never hardcode colors in SVG elements when theme tokens exist. Use `var(--primary)`, `var(--muted-foreground)`, `var(--card)`, `var(--border)`, `var(--accent)` directly in `fill`, `stroke`, and gradient stops.
+
 ## HTML behavior
 
 - Render one slide at a time with hash-addressable page numbers.

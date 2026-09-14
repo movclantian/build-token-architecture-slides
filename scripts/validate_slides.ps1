@@ -40,6 +40,13 @@ if ($raw -match '(?is)<button\b[^>]*(?:id|class)=["''][^"'']*(?:zoom|scale)[^"''
   $errors.Add('页面包含非演示性的缩放/比例交互控件，请移除临时交互插件，保持截图版面纯粹，依靠浏览器原生缩放')
 }
 
+$svgTags = [regex]::Matches($raw, '(?is)<svg\b[^>]*>')
+foreach ($svg in $svgTags) {
+  if ($svg.Value -notmatch '(?i)\bviewBox\s*=') {
+    $errors.Add('发现未声明 viewBox 的 svg 元素，请务必声明 viewBox 以确保矢量图形的自适应缩放与高清响应式表现')
+  }
+}
+
 if ($raw -match '(?is)\.diagram\s*\{[^}]*justify-content\s*:\s*space-between') {
   $errors.Add('diagram 使用 space-between，会把内容组分散到大面积空白中')
 }

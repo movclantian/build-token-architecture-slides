@@ -144,6 +144,33 @@
 - Use accent colors to encode stages or categories, not as unrelated decoration.
 - Preserve the supplied radius and shadow character unless it harms legibility.
 
+## SVG 矢量制图规范 (SVG Vector Visualization Contract)
+
+在表达复杂系统拓扑、多智能体协同、状态机流转与工程管道时，应大力优先采用原生内联 SVG 进行高保真矢量绘制：
+
+1. **拓扑连线与动态流向 (Topological Connectors & Curves)**
+   - 跨阶段长流线、S-Flow 蛇形折返转角、分支分流与汇总并线、反馈闭环一律采用 SVG `<path>` 承载；
+   - 优先使用平滑圆润的三次贝塞尔曲线（`d="M x1 y1 C cx1 cy1, cx2 cy2, x2 y2"`）或平滑二次曲线（`Q`、`S`），杜绝死板生硬的 90 度直角折线；
+   - 虚线流动与辅助反馈线使用 `stroke-dasharray="6 4"` 或 `stroke-dasharray="4 4"` 配合半透明主色，区分强依赖主线与弱依赖审计反馈线。
+
+2. **矢量箭头与端点标记规范 (Markers & Endpoints)**
+   - 统一在 `<svg>` 顶部的 `<defs>` 区域声明语义化箭头标记（如 `id="arrow-primary"`, `id="arrow-muted"`, `id="arrow-accent"`）；
+   - 标记设置 `viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"`，确保箭头方向与切线方向严格共线；
+   - 关键转折节点或分支汇聚点可使用小圆环（`r="3"` 或 `r="4"`）作为锚点端点，强化电路总线感。
+
+3. **矢量节点与架构胶囊 (Vector Nodes & Architectural Capsules)**
+   - 核心引擎、智能体节点、决策网关（菱形 `<polygon>`）、总线底座（Busbar）优先使用 SVG 原生矢量图元组合；
+   - 节点外框使用 `<rect rx="8" ry="8">` 配合主题语义边框，内部文字使用 `<text text-anchor="middle" dominant-baseline="central">` 精确居中对齐；
+   - 状态圆环与进度徽章使用双层 `<circle>`（底层暗轨、表层彩色弧段与百分比文字），制造现代高阶仪表感。
+
+4. **渐变与质感增强 (Theme-Driven Gradients & Textures)**
+   - 善用 `<linearGradient>` 与 `<radialGradient>`，通过 `stop-color="var(--primary)"` 注入主题色，制作渐变连线与柔和发光节点；
+   - 适度引入低对比度背景辅助网格（`<pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="var(--border)" stroke-opacity="0.25"/></pattern>`），增强工程设计图纸的工业严谨质感。
+
+5. **响应式紧凑外接框契约 (Tight-Box ViewBox Rule)**
+   - SVG 的 `viewBox="minX minY width height"` 必须紧凑包裹内部绘制的所有几何图元（仅留 8px 至 16px 安全边距），严禁声明空旷无用的坐标范围；
+   - 容器样式必须声明 `width: 100%; height: auto; display: block;`，结合 `preserveAspectRatio="xMidYMid meet"`，确保图表在父级卡片内吃满宽度，根除“小图缩在大卡片中间”的尴尬排版。
+
 ## Chinese architecture wording
 
 - Prefer `用户标识` over internal names such as `resourceId`.
@@ -184,4 +211,6 @@ Reject and revise any slide when one of these is true:
 - cards are stuffed with narrative walls of text that force typography below screenshot legibility thresholds;
 - cards are cluttered with low-level source-code line numbers or file citation lists that crowd architectural diagrams;
 - non-presentation interactive UI controls (such as custom zoom buttons or floating toolbars) are rendered on the slide;
+- an inline SVG lacks a responsive viewBox attribute or uses fixed non-responsive width/height;
+- complex multi-node flow diagrams, curved transitions, or state loops are faked with brittle CSS borders rather than clean SVG vector paths;
 - style changes are limited to colors while typography, surfaces, borders, shadows, and theme-specific visual grammar are ignored.
